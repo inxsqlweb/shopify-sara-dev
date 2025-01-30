@@ -1,0 +1,23 @@
+<div class="page-width">
+  <h2>{{ section.settings.pre-order-title }}</h2>
+  <p>The new {{ collection.title }} is out now! {{ section.settings.pre-order-text }}</p>
+</div>
+{% schema %}
+  {
+    "name": "Call to Action",
+    "settings": [
+      {
+        "id": "pre-order-title",
+        "type": "text",
+        "label": "Title",
+        "default": "Order now"
+      },
+	{
+	"id": "pre-order-text",
+	"type": "textarea",
+	"label": "Text",
+	"default": "Enter text here"
+	}
+    ]
+  }
+{% endschema %}

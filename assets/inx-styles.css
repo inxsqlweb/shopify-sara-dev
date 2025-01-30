@@ -1,0 +1,80 @@
+.box {
+  border: 1px solid gray;
+  padding: 0.889em; 
+}
+
+.icon-r {
+  margin-right: 0.35em;
+}
+
+.icon-l {
+  margin-left: 0.35em;
+}
+
+.text-center {
+    text-align:center;
+}
+
+.text-right {
+    text-align:right;
+}
+
+.text-left {
+    text-align:left;
+}
+
+.text-xxs {
+  font-size: 12px; }
+
+.text-xs {
+  font-size: 0.889em; }
+
+.text-md {
+  font-size: 1.149em; }
+
+.text-lg {
+  font-size: 1.32em; }
+
+.text-xl {
+  font-size: 1.515em; }
+
+.text-xxl {
+  font-size: 1.741em; }
+
+ul.no-bullets {
+  list-style-type: none;
+  padding: 0;
+}
+
+/*Account Dashboard*/
+.account-box {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.account-box .box {
+  height: 100%;
+  box-shadow: 1px 1px 3px lightgray; }
+
+.account-box a {
+    display: block; 
+    text-decoration: none;
+}
+
+.account-box:hover .box  {
+  box-shadow: 1px 1px 3px gray;
+}
+
+.account-box .account-icon {
+  font-size: 2.5em; }
+
+.account-title {
+  display: block;
+  font-size: 1.149em;
+  font-weight: bold; }
+
+.account-desc {
+  display: block;
+  font-size: 0.889em;
+  margin-top: 0.5em;
+}
+
