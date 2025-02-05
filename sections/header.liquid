@@ -225,11 +225,11 @@
       {%- endif -%}
     {%- endif -%}
 
-    {%- if customer -%}
-      {%- assign menu_handle = 'inxsql-signed-in-menu' %}
-    {%- else -%}
-      {%- assign menu_handle = 'main-menu' %}
-    {%- endif -%}
+   {%- if customer -%}
+  {%- assign menu_handle = 'sign-in-main-menu' %}
+{%- else -%}
+  {%- assign menu_handle = 'main-menu' %}
+{%- endif -%}
     
     {% if section.settings.menu_type_desktop == 'dropdown' %}
       {% render 'header-dropdown-menu', menu_handle: menu_handle %}
