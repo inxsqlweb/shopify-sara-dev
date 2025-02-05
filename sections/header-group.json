@@ -45,7 +45,7 @@
         "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
-        "navbar_background_use": false,
+        "navbar_background_use": true,
         "navbar_background_color": "",
         "navbar_background_gradient": "linear-gradient(var(--brand-color-secondary) 0%, var(--brand-color-primary) 100%)",
         "navbar_link_color": "#ffffff",
