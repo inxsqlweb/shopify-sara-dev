@@ -233,10 +233,8 @@
     
     {% if section.settings.menu_type_desktop == 'dropdown' %}
       {% render 'header-dropdown-menu', menu_handle: menu_handle %}
-    {% elsif section.settings.menu_type_desktop == 'mega' %}
+    {% elsif section.settings.menu_type_desktop != 'drawer' %}
       {% render 'header-mega-menu', menu_handle: menu_handle %}
-     {% elsif section.settings.menu_type_desktop == 'drawer' %}
-      {% render 'header-drawer', menu_handle: menu_handle %}
     {% endif %}
 
     {%- if section.settings.logo_position == 'middle-center' -%}
