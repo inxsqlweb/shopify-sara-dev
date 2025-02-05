@@ -1,0 +1,46 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [],
+  "product": [
+    {
+      "key": "wearing_size",
+      "namespace": "model",
+      "name": "Wearing Size",
+      "description": "Size of the product that the model is wearing in the campaign",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "model_info",
+      "namespace": "models",
+      "name": "Model Info",
+      "description": "Details of the model's measurements",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "top_type",
+      "namespace": "custom",
+      "name": "Top Type",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
+  "variant": [],
+  "shop": []
+}
