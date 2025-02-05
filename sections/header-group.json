@@ -40,7 +40,7 @@
       "settings": {
         "logo_position": "top-left",
         "menu": "main-menu",
-        "menu_type_desktop": "mega",
+        "menu_type_desktop": "drawer",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
