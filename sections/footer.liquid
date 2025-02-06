@@ -104,8 +104,7 @@
                               </a>
                             </li>
                           {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
+                        </ul>                      
                       {%- elsif block.settings.menu == "footer-inxsql-signed-in-menu" and customer-%}
                         <ul class="footer-block__details-content list-unstyled">
                           {%- for link in block.settings.menu.links -%}
@@ -119,6 +118,7 @@
                             </li>
                           {%- endfor -%}
                         </ul>
+                      {%- endif -%}
                     {%- endif -%}
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
