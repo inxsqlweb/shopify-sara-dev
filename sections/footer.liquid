@@ -76,7 +76,11 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  {%- if block.settings.heading != "My Account"-%}
+                    <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  {%- elsif block.settings.heading == "My Account" and customer-%}
+                    <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  {%- endif -%}
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -88,18 +92,33 @@
                     </div>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li>
-                            <a
-                              href="{{ link.url }}"
-                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                            >
-                              {{ link.title | escape }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
+                      {%- if block.settings.menu != "footer-inxsql-signed-in-menu"-%}
+                        <ul class="footer-block__details-content list-unstyled">
+                          {%- for link in block.settings.menu.links -%}
+                            <li>
+                              <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                              >
+                                {{ link.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                      {%- elsif block.settings.menu == "footer-inxsql-signed-in-menu" and customer-%}
+                        <ul class="footer-block__details-content list-unstyled">
+                          {%- for link in block.settings.menu.links -%}
+                            <li>
+                              <a
+                                href="{{ link.url }}"
+                                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                              >
+                                {{ link.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
                     {%- endif -%}
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
