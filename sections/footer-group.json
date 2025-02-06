@@ -20,10 +20,18 @@
             "heading": "Quick links",
             "menu": "footer"
           }
+        },
+        "link_list_FGWFXJ": {
+          "type": "link_list",
+          "settings": {
+            "heading": "My Account",
+            "menu": "footer-inxsql-signed-in-menu"
+          }
         }
       },
       "block_order": [
-        "link_list_WRmtQT"
+        "link_list_WRmtQT",
+        "link_list_FGWFXJ"
       ],
       "custom_css": [
         "footer {background: linear-gradient( var(--brand-color-secondary) 0%, var(--brand-color-primary) 100% );}"
