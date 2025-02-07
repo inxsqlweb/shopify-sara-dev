@@ -4,11 +4,21 @@
 }
 
 .icon-r {
-  margin-right: 0.35em;
+  margin-left: 0.35em;
 }
 
 .icon-l {
-  margin-left: 0.35em;
+  margin-right: 0.35em;
+}
+
+.nearer-page-title {
+  margin-top: -2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .nearer-page-title {
+    margin-top: -3rem;
+  }
 }
 
 .text-center {
