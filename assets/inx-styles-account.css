@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Account Dashboard*/
+.account-box {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+.account-box .box {
+  height: 100%;
+  box-shadow: 1px 1px 3px lightgray; }
+
+.account-box a {
+    display: block; 
+    text-decoration: none;
+}
+
+.account-box:hover .box  {
+  box-shadow: 1px 1px 3px gray;
+}
+
+.account-box .account-icon {
+  font-size: 2.5em; }
+
+.account-title {
+  display: block;
+  font-size: 1.149em;
+  font-weight: bold; }
+
+.account-desc {
+  display: block;
+  font-size: 0.889em;
+  margin-top: 0.5em;
+}
+
+.account-label {  
+  font-weight: bolder;
+  font-family: 'Roboto Condensed', 'sans-serif';
+  margin-right: 0.35em;
+}

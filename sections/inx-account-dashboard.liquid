@@ -1,3 +1,5 @@
+{{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .account-box a {  
     color: {{ section.settings.acct-icon-color | default: "var(--brand-color-primary)" }}
