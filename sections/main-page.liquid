@@ -16,7 +16,11 @@
 
 <div class="page-width section-{{ section.id }}-padding">
   <h1 class="main-page-title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ page.title | escape }}
+    {%- if section.settings.custom_title != ""-%}
+      {{section.settings.custom_title | escape}}
+      {%- else -%}
+      {{ page.title | escape }}
+    {%- endif -%}    
   </h1>
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {{ page.content }}
@@ -32,6 +36,12 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "text",
+      "id": "custom_title",
+      "label": "Custom Page Heading",
+      "info": "Changes the page heading <h1>, but NOT the browser tab title."
     },
     {
       "type": "range",
