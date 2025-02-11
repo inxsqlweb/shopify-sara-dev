@@ -3,6 +3,16 @@
   padding: 0.889em; 
 }
 
+hr.list-divider {
+  border: none;
+  background-color: #bbb;
+  color: #bbb;
+  height: 0.75px;
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+  padding: 0;
+}
+
 .icon-r {
   margin-left: 0.35em;
 }
@@ -19,6 +29,15 @@
   .nearer-page-title {
     margin-top: -3rem;
   }
+}
+
+.page-width > .container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.text-gray {
+  color: #6B6B6B;
 }
 
 .text-center {
@@ -54,4 +73,8 @@
 ul.no-bullets {
   list-style-type: none;
   padding: 0;
+}
+
+.word-break {
+  word-wrap: break-word;
 }

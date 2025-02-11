@@ -1,7 +1,7 @@
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .account-box a {  
+  .acct-box a {  
     color: {{ section.settings.acct-icon-color | default: "var(--brand-color-primary)" }}
   }
 {%- endstyle -%}
@@ -26,63 +26,63 @@
 
   <div class="container-fluid">
       <div class="row align-items-stretch">
-          <div class="col-6 col-md-4 col-lg-3 text-center account-box">
+          <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
               <div class="box">
                   <a href="/pages/orders" alt="Order Lookup">
-                      <i class="fa-solid fa-search account-icon"></i>
-                      <span class="account-title">Orders</span>
+                      <i class="fa-solid fa-search acct-icon"></i>
+                      <span class="acct-title">Orders</span>
                   </a>
-                  <span class="account-desc"> View Open & Closed Orders</span>
+                  <span class="acct-desc"> View Open & Closed Orders</span>
               </div>
           </div>
 
-          <div class="col-6 col-md-4 col-lg-3 text-center account-box">
+          <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
               <div class="box">
                   <a href="" alt="Blanket Order Lookup">
-                      <i class="fa-solid fa-file-export account-icon"></i>
-                      <span class="account-title">Blanket Orders</span>
+                      <i class="fa-solid fa-file-export acct-icon"></i>
+                      <span class="acct-title">Blanket Orders</span>
                   </a>
-                  <span class="account-desc"> View Open & Closed Blanket Orders</span>
+                  <span class="acct-desc"> View Open & Closed Blanket Orders</span>
               </div>
           </div>
 
-          <div class="col-6 col-md-4 col-lg-3 text-center account-box">
+          <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
               <div class="box">
                   <a href="" alt="Quote Lookup">
-                      <i class="fa-solid fa-file-signature account-icon"></i>
-                      <span class="account-title">Quotes</span>
+                      <i class="fa-solid fa-file-signature acct-icon"></i>
+                      <span class="acct-title">Quotes</span>
                   </a>
-                  <span class="account-desc"> View Open Quotes</span>
+                  <span class="acct-desc"> View Open Quotes</span>
               </div>
           </div>
 
-          <div class="col-6 col-md-4 col-lg-3 text-center account-box">
+          <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
               <div class="box">
                   <a href="" alt="RMA Lookup">
-                      <i class="fa-solid fa-reply account-icon"></i>
-                      <span class="account-title">Return Request (RMA)</span>
+                      <i class="fa-solid fa-reply acct-icon"></i>
+                      <span class="acct-title">Return Request (RMA)</span>
                   </a>
-                  <span class="account-desc"> View Open Orders Eligible for RMA</span>
+                  <span class="acct-desc"> View Open Orders Eligible for RMA</span>
               </div>
           </div>
 
-         <div class="col-6 col-md-4 col-lg-3 text-center account-box">
+         <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
             <div class="box">
                 <a href="" alt="View Open Invoices">
-                    <i class="fa-solid fa-file-invoice-dollar account-icon"></i>
-                    <span class="account-title">Open Invoices</span>
+                    <i class="fa-solid fa-file-invoice-dollar acct-icon"></i>
+                    <span class="acct-title">Open Invoices</span>
                 </a>
-                <span class="account-desc"> View & Print Unpaid Invoices</span>
+                <span class="acct-desc"> View & Print Unpaid Invoices</span>
             </div>
         </div>
 
-         <div class="col-6 col-md-4 col-lg-3 text-center account-box">
+         <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
             <div class="box">
                 <a href="" alt="View Invoice History">
-                    <i class="fa-solid fa-history account-icon"></i>
-                    <span class="account-title">Invoice History</span>
+                    <i class="fa-solid fa-history acct-icon"></i>
+                    <span class="acct-title">Invoice History</span>
                 </a>
-                <span class="account-desc"> View Invoice & Payment History</span>
+                <span class="acct-desc"> View Invoice & Payment History</span>
             </div>
         </div>   
     </div>
@@ -91,7 +91,7 @@
 
 {% schema %}
   {
-    "name": "Account Dashboard",
+    "name": "acct Dashboard",
     "settings": [      
       {
         "type": "color",
