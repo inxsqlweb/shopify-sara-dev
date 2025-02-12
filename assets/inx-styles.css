@@ -3,6 +3,12 @@
   padding: 0.889em; 
 }
 
+.heading {
+  border-bottom: 1px solid #BBB;
+  margin: 0.5em 0;
+  padding-bottom: 0.25em;
+}
+
 hr.list-divider {
   border: none;
   background-color: #bbb;
@@ -19,6 +25,10 @@ hr.list-divider {
 
 .icon-l {
   margin-right: 0.35em;
+}
+
+.line-condensed {
+  line-height: calc(1 + 0.5 / var(--font-body-scale));
 }
 
 .nearer-page-title {
@@ -69,6 +79,15 @@ hr.list-divider {
 
 .text-xxl {
   font-size: 1.741em; }
+
+.table-condensed {
+  border-spacing: 0;
+  line-height: calc(1 + 0.5 / var(--font-body-scale));
+}
+
+.table-row1-label td:first-child {
+  padding-right: 2em;
+}
 
 ul.no-bullets {
   list-style-type: none;

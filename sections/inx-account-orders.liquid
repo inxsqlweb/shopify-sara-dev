@@ -1,70 +1,19 @@
+<script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .acct-order-num {  
-    color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
-  }
-  .acct-table-header {
-    border-color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
-  }
+.acct-order-num {
+color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
+}
+.acct-table-header {
+border-color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
+}
+.acct-nav-link {
+color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
+}
 {%- endstyle -%}
 
-{% comment %} <section class="page-width">
-  <div class="overflow-hidden text-xs">
-    <div class="d-none d-xl-grid acct-table-header acct-table-grid acct-table-orders">
-      <div>
-        <span>Order #</span>
-      </div>
-      <div>
-        <span>Type</span>
-      </div>
-      <div>
-        <span>Date</span>
-      </div>
-      <div>
-        <span>Status</span>
-      </div>
-      <div>
-        <span>PO #</span>
-      </div>
-      <div>
-        <span>Ordered By</span>
-      </div>
-      <div>
-        <span>Amount</span>
-      </div>
-    </div>  
-
-    <div class="acct-table-grid acct-table-orders">
-      <div class="acct-order">
-        <a href="" class="acct-order-num">MX-00050304</a>
-      </div>
-      <div class="acct-order-type">
-          <span class="acct-label">Type:</span>Direct Sale
-      </div>
-      <div class="acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
-      </div>
-      <div>
-          <span class="acct-label">Status:</span>Notes - Needs Review
-      </div>
-      <div>
-          <span class="acct-label">PO #</span>987654321
-      </div>
-      <div>
-          <span class="acct-label">Ordered By:</span>Sara Ahlers
-      </div>
-      <div>
-          <span class="acct-label">Amount:</span>$1234.56
-      </div>
-      <div class="acct-divider">
-        <hr class="list-divider"/>
-      </div>
-    </div>   
-  </div>  
-</section>      {% endcomment %}
-
-<section class="page-width">
+<section class="page-width" id="orders-section" data-total="" data-type="orders">
   <div class="container-fluid text-xs">
     <div class="row d-none d-xl-flex acct-table acct-table-header">
       <div class="col-12 col-lg-3 col-xl-2">
@@ -89,31 +38,33 @@
         <span>Amount</span>
       </div>
     </div>
+  </div>
 
+  <div class="container-fluid text-xs">
     <div class="row acct-table">
       <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">W-12345</a>
+        <a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink" data-order-id="1">W-12345</a>
       </div>
       <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-          <span class="acct-label">Type:</span>Order
+        <span class="acct-label">Type:</span>Order
       </div>
       <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
         <span class="acct-label">Date:</span>01/01/2025
       </div>
       <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-          <span class="acct-label">Status:</span>Web Order Pending
+        <span class="acct-label">Status:</span>Web Order Pending
       </div>
       <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-          <span class="acct-label">PO #</span>123456
+        <span class="acct-label">PO #</span>123456
       </div>
       <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-          <span class="acct-label">Ordered By:</span>Ronald Campbell
+        <span class="acct-label">Ordered By:</span>Ronald Campbell
       </div>
       <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-          <span class="acct-label">Amount:</span>$123.45
+        <span class="acct-label">Amount:</span>$123.45
       </div>
       <div class="col-12">
-        <hr class="list-divider"/>
+        <hr class="list-divider" />
       </div>
     </div>
 
@@ -122,39 +73,369 @@
         <a href="" class="acct-order-num">MX-00050304</a>
       </div>
       <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-          <span class="acct-label">Type:</span>Direct Sale
+        <span class="acct-label">Type:</span>Direct Sale
       </div>
       <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
         <span class="acct-label">Date:</span>01/01/2025
       </div>
       <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-          <span class="acct-label">Status:</span>Notes - Needs Review
+        <span class="acct-label">Status:</span>Notes - Needs Review
       </div>
       <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-          <span class="acct-label">PO #</span>987654321
+        <span class="acct-label">PO #</span>987654321
       </div>
       <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-          <span class="acct-label">Ordered By:</span>Sara Ahlers
+        <span class="acct-label">Ordered By:</span>Sara Ahlers
       </div>
       <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-          <span class="acct-label">Amount:</span>$1234.56
+        <span class="acct-label">Amount:</span>$1234.56
       </div>
       <div class="col-12">
-        <hr class="list-divider"/>
+        <hr class="list-divider" />
       </div>
-    </div>   
-  </div>  
-</section>    
+    </div>
+
+    <div class="row acct-table">
+      <div class="col-12 col-lg-3 col-xl-2">
+        <a href="" class="acct-order-num">W-654321</a>
+      </div>
+      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+        <span class="acct-label">Type:</span>Order
+      </div>
+      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+        <span class="acct-label">Date:</span>01/15/2025
+      </div>
+      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+        <span class="acct-label">Status:</span>Open
+      </div>
+      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+        <span class="acct-label">PO #</span>789456
+      </div>
+      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+        <span class="acct-label">Ordered By:</span>Sara Ahlers
+      </div>
+      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+        <span class="acct-label">Amount:</span>$34.56
+      </div>
+      <div class="col-12">
+        <hr class="list-divider" />
+      </div>
+    </div>
+
+    <div class="row acct-table">
+      <div class="col-12 col-lg-3 col-xl-2">
+        <a href="" class="acct-order-num">MX-123456</a>
+      </div>
+      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+        <span class="acct-label">Type:</span>Credit
+      </div>
+      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+        <span class="acct-label">Date:</span>01/01/2025
+      </div>
+      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+        <span class="acct-label">Status:</span>
+      </div>
+      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+        <span class="acct-label">PO #</span>75396
+      </div>
+      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+        <span class="acct-label">Ordered By:</span>Harry Potter
+      </div>
+      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+        <span class="acct-label">Amount:</span>$12.13
+      </div>
+      <div class="col-12">
+        <hr class="list-divider" />
+      </div>
+    </div>
+
+    <div class="row acct-table">
+      <div class="col-12 col-lg-3 col-xl-2">
+        <a href="" class="acct-order-num">W-456123</a>
+      </div>
+      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+        <span class="acct-label">Type:</span>Order
+      </div>
+      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+        <span class="acct-label">Date:</span>12/01/2024
+      </div>
+      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+        <span class="acct-label">Status:</span>Shopify Order
+      </div>
+      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+        <span class="acct-label">PO #</span>12345
+      </div>
+      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+        <span class="acct-label">Ordered By:</span>Hermoine Granger
+      </div>
+      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+        <span class="acct-label">Amount:</span>$2138.66
+      </div>
+      <div class="col-12">
+        <hr class="list-divider" />
+      </div>
+    </div>
+
+    <div class="row acct-table">
+      <div class="col-12 col-lg-3 col-xl-2">
+        <a href="" class="acct-order-num">W-78945</a>
+      </div>
+      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+        <span class="acct-label">Type:</span>Order
+      </div>
+      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+        <span class="acct-label">Date:</span>01/13/2025
+      </div>
+      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+        <span class="acct-label">Status:</span>Order Invoiced
+      </div>
+      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+        <span class="acct-label">PO #</span>42651
+      </div>
+      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+        <span class="acct-label">Ordered By:</span>Ron Weasley
+      </div>
+      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+        <span class="acct-label">Amount:</span>$63.24
+      </div>
+      <div class="col-12">
+        <hr class="list-divider" />
+      </div>
+    </div>
+
+    <div class="row acct-table">
+      <div class="col-12 col-lg-3 col-xl-2">
+        <a href="" class="acct-order-num">MX-42651</a>
+      </div>
+      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+        <span class="acct-label">Type:</span>Order
+      </div>
+      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+        <span class="acct-label">Date:</span>01/31/2025
+      </div>
+      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+        <span class="acct-label">Status:</span>Shopify Order
+      </div>
+      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+        <span class="acct-label">PO #</span>142563
+      </div>
+      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+        <span class="acct-label">Ordered By:</span>Luna Lovegood
+      </div>
+      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+        <span class="acct-label">Amount:</span>$134.77
+      </div>
+      <div class="col-12">
+        <hr class="list-divider" />
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- # Order Details Section -%}
+<section class="page-width jsOrderDetailsSection" id="order-details-1" style="display:none;" data-order-id="1">
+  <div class="container-fluid">
+    <div class="box">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <h2 class="mt-0">Order W-123456</h2>
+          <button type="button" class="link acct-nav-link font-body-bold jsBackToOrders"><i class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
+        </div>
+        <div class="col-12 col-md-6">
+          <table class="table-condensed table-row1-label">
+            <tr>
+              <td class="acct-label">Date</td>
+              <td>01/01/2025</td>
+            </tr>
+            <tr>
+              <td class="acct-label">PO #</td>
+              <td>123456</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Ordered By</td>
+              <td>Harry Potter</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Status</td>
+              <td>Open</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Freight</td>
+              <td>My Freight</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <ul class="no-bullets">
+            {%-comment%}<li>Invoice/packing/tracking placeholder</li>{%endcomment%}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <ul class="no-bullets line-condensed">
+            <li class="acct-label">Bill To</li>
+            <li>Name</li>
+            <li>Address1</li>
+            <li>Address2</li>
+            <li>City, State Zip</li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <ul class="no-bullets line-condensed">
+            <li class="acct-label">Ship To</li>
+            <li>Name</li>
+            <li>Address1</li>
+            <li>Address2</li>
+            <li>City, State Zip</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-12">
+          <table class="table-condensed table-row1-label">
+            <tr>
+              <td class="acct-label">Ship Via</td>
+              <td>UPS</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Requested Ship Date</td>
+              <td>01/02/2025</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Order Comments</td>
+              <td>My Order Comments</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <table class="table-condensed table-row1-label">
+            <tr>
+              <td class="acct-label">Subtotal</td>
+              <td>$10.00</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Tax</td>
+              <td>$1.60</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Shipping & Handling</td>
+              <td>$0.00</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Misc Fee</td>
+              <td>$0.00</td>
+            </tr>
+            <tr>
+              <td class="acct-label">Total</td>
+              <td class="font-body-bold">$11.60</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-12">
+        <p class="heading text-lg font-body-bold">Items</p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-8 col-xxl-9">
+            <ul class="no-bullets line-condensed my-0">
+              <li class="font-body-bold">INxSQL Golfball</li>
+              <li><span class="text-xs text-gray pe-2">Item #</span>123456</li> 
+              <li><span class="text-xs text-gray pe-2">Requested Ship Date:</span>01/01/2025</li>  
+              <li><span class="text-xs text-gray pe-2">Comments:</span>My comments</li> 
+              <li><span class="text-xs text-gray pe-2">Handle:</span></li>   
+            </ul>
+        </div>       
+
+        <div class="col-12 col-sm-4 col-md-4 col-xxl-3 mt-2 mt-sm-0">
+            {%- render 'buy-buttons', product: product -%}
+        </div>
+
+        <div class="col-12">
+          <hr class="list-divider" />
+        </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} CSS Grid Attempt:
+<section class="page-width">
+  <div class="overflow-hidden text-xs">
+    <div class="d-none d-xl-grid acct-table-header acct-table-grid acct-table-orders">
+      <div>
+        <span>Order #</span>
+      </div>
+      <div>
+        <span>Type</span>
+      </div>
+      <div>
+        <span>Date</span>
+      </div>
+      <div>
+        <span>Status</span>
+      </div>
+      <div>
+        <span>PO #</span>
+      </div>
+      <div>
+        <span>Ordered By</span>
+      </div>
+      <div>
+        <span>Amount</span>
+      </div>
+    </div>
+
+    <div class="acct-table-grid acct-table-orders">
+      <div class="acct-order">
+        <a href="" class="acct-order-num">MX-00050304</a>
+      </div>
+      <div class="acct-order-type">
+        <span class="acct-label">Type:</span>Direct Sale
+      </div>
+      <div class="acct-date">
+        <span class="acct-label">Date:</span>01/01/2025
+      </div>
+      <div>
+        <span class="acct-label">Status:</span>Notes - Needs Review
+      </div>
+      <div>
+        <span class="acct-label">PO #</span>987654321
+      </div>
+      <div>
+        <span class="acct-label">Ordered By:</span>Sara Ahlers
+      </div>
+      <div>
+        <span class="acct-label">Amount:</span>$1234.56
+      </div>
+      <div class="acct-divider">
+        <hr class="list-divider" />
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
 
 {% schema %}
-  {
-    "name": "Orders",
-    "settings": [      
-      {
-        "type": "color",
-        "id": "acct-link-color",
-        "label": "Link Color"
-      }
-    ]
-  }
+{
+"name": "Orders",
+"settings": [
+{
+"type": "color",
+"id": "acct-link-color",
+"label": "Link Color"
+}
+]
+}
 {% endschema %}

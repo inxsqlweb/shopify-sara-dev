@@ -21,6 +21,12 @@
 .acct-box .acct-icon {
   font-size: 2.5em; }
 
+  .acct-nav-link {
+    display: block;
+    font-size: 0.889em;
+    margin-bottom: 1em;
+  }
+
 .acct-title {
   display: block;
   font-size: 1.149em;
@@ -36,8 +42,10 @@
   color: #555555;
   font-weight: bolder;
   font-family: 'Roboto Condensed', 'sans-serif';
-  margin-right: 0.35em;
+  margin-right: 0.35em;  
+}
 
+.acct-table .acct-label {
   @media screen and (min-width: 1200px) {
     display: none;
   }
