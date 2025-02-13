@@ -7,7 +7,7 @@
 {%- endstyle -%}
 
 {%- if customer-%}
-    <section class="page-width">
+<section class="page-width">
   <div class="container-fluid">
       <div class=row>
          <div class="col-3 col-md-2 col-lg-1 text-center">
@@ -89,8 +89,11 @@
     </div>
   </div>
 </section>
+
 {%- else -%}
-<p>please log in</p>
+<section class="page-width">
+    <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.</p>  
+</section>
 {%- endif -%}
 
 {% schema %}
