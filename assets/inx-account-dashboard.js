@@ -13,7 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  
+  const orderRows = document.querySelectorAll('.jsOrderRow');
+  const itemSearch = document.getElementById('jsOrderItemSearch');
+
+  itemSearch.addEventListener('input', function() {
+    const searchValue = this.value.trim().toLowerCase();
+      orderRows.forEach(row => {
+        const rowItems = row.dataset.items;
+            if (!searchValue || rowItems.includes(searchValue)) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+      })
+  });
+
+  const clearInputButtons = document.querySelectorAll('.jsResetBtn');
+  clearInputButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const input = this.closest('.jsResetInput').children[0]; // Find the closest parent, first child should be the input field      
+          input.value = '';
+          input.dispatchEvent(new Event('input', { bubbles: true }));        
+      });
+  });
 });
 
 /*Show order details for a specific order ID.@param {string} orderId - The order ID to display details for.*/

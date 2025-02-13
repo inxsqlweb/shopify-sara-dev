@@ -1,0 +1,26 @@
+.btn-icon-only {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.inx-input {
+  position: relative;
+}
+
+.inx-input input {
+  padding: 0.8em;
+  border: 1px solid rgba(18, 18, 18, 0.55);
+  border-radius: var(--inputs-radius);
+}
+
+.top-label {
+  background-color: white;
+  font-size: var(--text-xs);
+  position: absolute;
+  top: -0.8em;
+  left: 0.5em;
+}

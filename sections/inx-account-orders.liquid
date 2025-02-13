@@ -13,8 +13,15 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
 }
 {%- endstyle -%}
 
-<section class="page-width" id="orders-section" data-total="" data-type="orders">
+{% comment %} {%- if customer -%} {% endcomment %}
+<section class="page-width" id="orders-section" data-total="" data-type="orders">  
   <div class="container-fluid text-xs">
+    <div class="row my-5">
+      <div class="col-12 col-sm-6">
+        {%- render 'inx-account-order-search' -%}
+      </div>
+    </div>
+
     <div class="row d-none d-xl-flex acct-table acct-table-header">
       <div class="col-12 col-lg-3 col-xl-2">
         <span>Order #</span>
@@ -41,7 +48,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
   </div>
 
   <div class="container-fluid text-xs">
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink" data-order-id="1">W-12345</a>
       </div>
@@ -68,7 +75,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
       </div>
     </div>
 
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="" class="acct-order-num">MX-00050304</a>
       </div>
@@ -95,7 +102,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
       </div>
     </div>
 
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="" class="acct-order-num">W-654321</a>
       </div>
@@ -122,7 +129,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
       </div>
     </div>
 
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="" class="acct-order-num">MX-123456</a>
       </div>
@@ -149,7 +156,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
       </div>
     </div>
 
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="" class="acct-order-num">W-456123</a>
       </div>
@@ -176,7 +183,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
       </div>
     </div>
 
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="" class="acct-order-num">W-78945</a>
       </div>
@@ -203,7 +210,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
       </div>
     </div>
 
-    <div class="row acct-table">
+    <div class="row acct-table jsOrderRow">
       <div class="col-12 col-lg-3 col-xl-2">
         <a href="" class="acct-order-num">MX-42651</a>
       </div>
@@ -237,7 +244,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
   <div class="container-fluid">
     <div class="box">
       <div class="row">
-        <div class="col-12 mb-4">
+        <div class="col-12 mb-4 d-flex justify-content-between">
           <h2 class="mt-0">Order W-123456</h2>
           <button type="button" class="link acct-nav-link font-body-bold jsBackToOrders"><i class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
         </div>
@@ -371,61 +378,11 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
   </div>
 </section>
 
-{% comment %} CSS Grid Attempt:
+{% comment %} {%- else -%}
 <section class="page-width">
-  <div class="overflow-hidden text-xs">
-    <div class="d-none d-xl-grid acct-table-header acct-table-grid acct-table-orders">
-      <div>
-        <span>Order #</span>
-      </div>
-      <div>
-        <span>Type</span>
-      </div>
-      <div>
-        <span>Date</span>
-      </div>
-      <div>
-        <span>Status</span>
-      </div>
-      <div>
-        <span>PO #</span>
-      </div>
-      <div>
-        <span>Ordered By</span>
-      </div>
-      <div>
-        <span>Amount</span>
-      </div>
-    </div>
-
-    <div class="acct-table-grid acct-table-orders">
-      <div class="acct-order">
-        <a href="" class="acct-order-num">MX-00050304</a>
-      </div>
-      <div class="acct-order-type">
-        <span class="acct-label">Type:</span>Direct Sale
-      </div>
-      <div class="acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
-      </div>
-      <div>
-        <span class="acct-label">Status:</span>Notes - Needs Review
-      </div>
-      <div>
-        <span class="acct-label">PO #</span>987654321
-      </div>
-      <div>
-        <span class="acct-label">Ordered By:</span>Sara Ahlers
-      </div>
-      <div>
-        <span class="acct-label">Amount:</span>$1234.56
-      </div>
-      <div class="acct-divider">
-        <hr class="list-divider" />
-      </div>
-    </div>
-  </div>
-</section> {% endcomment %}
+    <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.</p>  
+</section>
+{%- endif -%} {% endcomment %}
 
 {% schema %}
 {

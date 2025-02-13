@@ -1,3 +1,12 @@
+:root {
+  --text-xxs: 12px;
+  --text-xs: 0.889em;
+  --text-md: 1.149em;
+  --text-lg: 1.32em;
+  --text-xl: 1.515em;
+  --text-xxl: 1.741em;
+}
+
 .box {
   border: 1px solid gray;
   padding: 0.889em; 
@@ -63,22 +72,22 @@ hr.list-divider {
 }
 
 .text-xxs {
-  font-size: 12px; }
+  font-size: var(--text-xxs); }
 
 .text-xs {
-  font-size: 0.889em; }
+  font-size: var(--text-xs); }
 
 .text-md {
-  font-size: 1.149em; }
+  font-size: var(--text-md); }
 
 .text-lg {
-  font-size: 1.32em; }
+  font-size: var(--text-lg); }
 
 .text-xl {
-  font-size: 1.515em; }
+  font-size: var(--text-xl); }
 
 .text-xxl {
-  font-size: 1.741em; }
+  font-size: var(--text-xxl); }
 
 .table-condensed {
   border-spacing: 0;
