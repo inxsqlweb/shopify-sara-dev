@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
       showOrderDetails(orderId);
     } else if (event.target.matches(".jsBackToOrders")) {
       showOrdersSection();
+      window.scrollTo(0, 0);
     }
   });
 
