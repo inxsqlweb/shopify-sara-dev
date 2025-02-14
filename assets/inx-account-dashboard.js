@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       const orderId = event.target.getAttribute("data-order-id");
       showOrderDetails(orderId);
+      window.scrollTo(0, 0);
     } else if (event.target.matches(".jsBackToOrders")) {
       showOrdersSection();
       window.scrollTo(0, 0);

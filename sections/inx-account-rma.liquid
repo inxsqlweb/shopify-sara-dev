@@ -14,34 +14,42 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
 {%- endstyle -%}
 
 {% comment %} {%- if customer -%} {% endcomment %}
-<section class="page-width" id="orders-section" data-total="" data-type="orders">  
+<section class="page-width" id="orders-section" data-total="" data-type="orders">   
   <div class="container-fluid text-xs">
-    <div class="row my-5">
+    <div class="row">
+      <div class="col-12">
+        <p class="font-body-bold text-md">Select the invoice # below with the items you wish to return.</p>
+      </div>
+    </div> 
+    <div class="row mt-3 mb-5">
       <div class="col-12 col-sm-6">
         {%- render 'inx-account-order-search' -%}
       </div>
     </div>
 
     <div class="row d-none d-xl-flex acct-table acct-table-header">
-      <div class="col-12 col-lg-3 col-xl-2">
+      <div class="col-12 col-lg-3 col-xl acct-col-xl-120">
+        <span>Invoice #</span>
+      </div>
+      <div class="col-12 col-lg-3 col-xl acct-col-xl-120">
         <span>Order #</span>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-7 col-md-3 col-lg-2 col-xl acct-type acct-col-xl-120">
         <span>Type</span>
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-5 col-xl acct-date">
         <span>Date</span>
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span>Status</span>
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120">
         <span>PO #</span>
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span>Ordered By</span>
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span>Amount</span>
       </div>
     </div>
@@ -49,25 +57,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
 
   <div class="container-fluid text-xs">
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink" data-order-id="1">W-12345</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink" data-order-id="1">100875</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>W-12345
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Order
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>01/01/2025
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>Web Order Pending
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>123456
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Ronald Campbell
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$123.45
       </div>
       <div class="col-12">
@@ -76,25 +87,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
     </div>
 
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">MX-00050304</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink">100880</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>MX-00050304
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Direct Sale
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>01/01/2025
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>Notes - Needs Review
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>987654321
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Sara Ahlers
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$1234.56
       </div>
       <div class="col-12">
@@ -103,25 +117,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
     </div>
 
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">W-654321</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink">100825</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>W-654321
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Order
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>01/15/2025
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>Open
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>789456
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Sara Ahlers
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$34.56
       </div>
       <div class="col-12">
@@ -130,25 +147,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
     </div>
 
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">MX-123456</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink">100866</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>MX-123456
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Credit
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>01/01/2025
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>75396
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Harry Potter
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$12.13
       </div>
       <div class="col-12">
@@ -157,25 +177,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
     </div>
 
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">W-456123</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink">100878</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>W-456123
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Order
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>12/01/2024
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>Shopify Order
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>12345
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Hermoine Granger
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$2138.66
       </div>
       <div class="col-12">
@@ -184,25 +207,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
     </div>
 
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">W-78945</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink">100810</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>W-78945
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Order
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>01/13/2025
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>Order Invoiced
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>42651
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Ron Weasley
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$63.24
       </div>
       <div class="col-12">
@@ -211,25 +237,28 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
     </div>
 
     <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-order-num">MX-42651</a>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-col-xl-120">
+        <span class="acct-label text-md">Invoice #</span><a href="javascript:void(0);" class="acct-order-num jsOrderDetailsLink">100841</a>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
+      <div class="col-5 col-md-9 col-lg-2 col-xl acct-col-xl-120">
+        <span class="acct-label">Order #</span>MX-42651
+      </div>
+      <div class="col-7 col-md-3 col-lg-3 col-xl acct-type acct-col-xl-120">
         <span class="acct-label">Type:</span>Order
       </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
+      <div class="col-5 col-md-4 col-lg-4 col-xl acct-date">
         <span class="acct-label">Date:</span>01/31/2025
       </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
+      <div class="col-7 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Status:</span>Shopify Order
       </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
+      <div class="col-5 col-md-3 col-lg-2 col-xl acct-col-xl-120 word-break">
         <span class="acct-label">PO #</span>142563
       </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
+      <div class="col-7 col-md-4 col-lg-3 col-xl">
         <span class="acct-label">Ordered By:</span>Luna Lovegood
       </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
+      <div class="col-5 col-md-5 col-lg-3 col-xl">
         <span class="acct-label">Amount:</span>$134.77
       </div>
       <div class="col-12">

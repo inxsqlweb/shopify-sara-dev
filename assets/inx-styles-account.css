@@ -74,7 +74,7 @@
 
 .acct-date {
   @media screen and (min-width: 1200px) {    
-    flex: 0 0 130px;
+    flex: 0 0 110px;
   }
 }
 
@@ -84,6 +84,18 @@
   }
 
   @media screen and (min-width: 1400px) {    
+    flex: 0 0 150px;
+  }
+}
+
+.acct-col-xl-120 {
+  @media screen and (min-width: 1200px) {    
+    flex: 0 0 120px;
+  }
+}
+
+.acct-col-xl-150 {
+  @media screen and (min-width: 1200px) {    
     flex: 0 0 150px;
   }
 }
