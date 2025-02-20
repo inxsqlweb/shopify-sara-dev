@@ -10,10 +10,10 @@
         "type": "inx-account-dashboard-link"
     },  
     
-    "blanket_orders": {
-      "type": "inx-account-blanket-orders",
-      "settings": {  }
+    "open_invoices": {
+      "type": "inx-account-open-invoices",
+      "settings": { "acct-icon-color": "" }
     }
   },
-  "order": ["main", "dashboard_link", "blanket_orders"]
+  "order": ["main", "dashboard_link", "open_invoices"]
 }

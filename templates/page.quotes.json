@@ -10,10 +10,10 @@
         "type": "inx-account-dashboard-link"
     },  
     
-    "orders": {
+    "quotes": {
       "type": "inx-account-quotes",
       "settings": {  }
     }
   },
-  "order": ["main", "dashboard_link", "orders"]
+  "order": ["main", "dashboard_link", "quotes"]
 }

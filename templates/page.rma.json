@@ -10,10 +10,10 @@
         "type": "inx-account-dashboard-link"
     },  
     
-    "orders": {
+    "rmas": {
       "type": "inx-account-rma",
       "settings": {  }
     }
   },
-  "order": ["main", "dashboard_link", "orders"]
+  "order": ["main", "dashboard_link", "rmas"]
 }

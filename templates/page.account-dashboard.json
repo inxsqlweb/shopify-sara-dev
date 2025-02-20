@@ -5,10 +5,10 @@
       "custom_css": [],
       "settings": { "padding_top": 20, "padding_bottom": 0 }
     },
-    "account-dashboard": {
+    "account_dashboard": {
       "type": "inx-account-dashboard",
       "settings": { "acct-icon-color": "" }
     }
   },
-  "order": ["main", "account-dashboard"]
+  "order": ["main", "account_dashboard"]
 }
