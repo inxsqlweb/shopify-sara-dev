@@ -1,17 +1,7 @@
 <script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-.acct-order-num {
-color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
-}
-.acct-table-header {
-border-color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
-}
-.acct-nav-link {
-color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary)" }}
-}
-{%- endstyle -%}
+
 
 {% comment %} {%- if customer -%} {% endcomment %}
 <section class="page-width" id="orders-section" data-total="" data-type="orders">   
@@ -422,11 +412,7 @@ color: {{ section.settings.acct-link-color | default: "var(--brand-color-primary
 {
 "name": "Returns",
 "settings": [
-{
-"type": "color",
-"id": "acct-link-color",
-"label": "Link Color"
-}
+
 ]
 }
 {% endschema %}
