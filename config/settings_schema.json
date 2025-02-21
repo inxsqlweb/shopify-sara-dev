@@ -1479,7 +1479,7 @@
         "type": "font_picker",
         "id": "acct_data_labels",
         "label": "Data Labels Font",
-        "default": "roboto_condensed_n4"
+        "default": "roboto_condensed_n7"
       }
     ]
   }
