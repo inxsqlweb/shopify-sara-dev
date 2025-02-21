@@ -44,7 +44,7 @@
 .acct-label {  
   color: #555555;
   font-weight: {{ settings.acct_data_labels.weight }};
-  font-family: {{ settings.acct_data_labels.family }}, {{ settings.acct_data_labels.fallback_families }};
+  font-family: {{ settings.acct_data_labels.family | font-face }}, {{ settings.acct_data_labels.fallback_families }};
   margin-right: 0.35em;  
 }
 
