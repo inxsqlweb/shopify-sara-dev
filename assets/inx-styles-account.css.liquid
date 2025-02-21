@@ -20,15 +20,15 @@
 .acct-box .acct-icon {
   font-size: 2.5em; }
 
-  .acct-link {    
-    color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
-  }
+.acct-link {    
+  color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
+}
 
-  .acct-nav-link {
-    display: block;
-    font-size: var(--text-xs);
-    margin-bottom: 1em;
-  }
+.acct-nav-link {
+  display: block;
+  font-size: var(--text-xs);
+  margin-bottom: 1em;
+}
 
 .acct-title {
   display: block;
@@ -43,7 +43,7 @@
 
 .acct-label {  
   color: #555555;
-  font-weight: bold;
+  font-weight: {{ settings.acct_data_labels.weight }};
   font-family: {{ settings.acct_data_labels.family }}, sans-serif;
   margin-right: 0.35em;  
 }
