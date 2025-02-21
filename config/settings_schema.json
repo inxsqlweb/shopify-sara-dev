@@ -1465,5 +1465,14 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Account Dashboard - INxSQL",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Account"
+      }
+    ]
   }
 ]
