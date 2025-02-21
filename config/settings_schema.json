@@ -1470,6 +1470,10 @@
     "name": "Account Dashboard - INxSQL",
     "settings": [
       {
+        "type": "paragraph",
+        "content": "These settings apply to the Account Dashboard and it's individual dashboard pages."
+      },
+      {
         "type": "color",
         "id": "acct_dashboard_link_color",
         "label": "Icon & Link Color",
