@@ -1470,8 +1470,9 @@
     "name": "Account Dashboard - INxSQL",
     "settings": [
       {
-        "type": "header",
-        "content": "Account"
+        "type": "checkbox",
+        "id": "checkbox_test",
+        "label": "Account"
       }
     ]
   }
