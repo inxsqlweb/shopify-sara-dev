@@ -128,8 +128,8 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
-    "acct_dashboard_icon_color": "#175381",
-    "acct_dashboard_link_color": "",
+    "acct_dashboard_icon_color": "#621781",
+    "acct_dashboard_link_color": "#33b442",
     "acct_data_labels": "roboto_condensed_n7",
     "sections": {
       "main-password-header": {
