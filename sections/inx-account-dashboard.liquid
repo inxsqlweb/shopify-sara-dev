@@ -1,10 +1,6 @@
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .acct-box a {  
-    color: {{ section.settings.acct-icon-color | default: "var(--brand-color-primary)" }}
-  }
-{%- endstyle -%}
+
 
 {% comment %} {%- if customer -%} {% endcomment %}
 <section class="page-width">
@@ -100,11 +96,7 @@
   {
     "name": "account_dashboard",
     "settings": [      
-      {
-        "type": "color",
-        "id": "acct-icon-color",
-        "label": "Icon Color"
-      }
+      
     ]
   }
 {% endschema %}
