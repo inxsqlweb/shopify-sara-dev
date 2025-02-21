@@ -100,7 +100,7 @@
       }
 
       :root {
-        --brand-color-primary: {{shop.brand.colors.primary[0].background}};
+        --brand-color-primary: {{shop.brand.colors.primary[0].background | default: "#175381"}};
         --brand-color-secondary: {{shop.brand.colors.secondary[0].background}};
         --brand-color-accent: {{shop.brand.colors.primary[0].foreground}};
         
