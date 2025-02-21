@@ -1472,7 +1472,8 @@
       {
         "type": "color",
         "id": "acct_dashboard_link_color",
-        "label": "Icon & Link Color"
+        "label": "Icon & Link Color",
+        "default": "{{shop.brand.colors.primary[0].background}}"
       }
     ]
   }
