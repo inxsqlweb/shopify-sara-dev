@@ -12,7 +12,7 @@
 .acct-box a {
     display: block; 
     text-decoration: none;
-    color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }}
+    color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
 }
 
 .acct-box:hover .box  {
@@ -26,6 +26,7 @@
     display: block;
     font-size: var(--text-xs);
     margin-bottom: 1em;
+    color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
   }
 
 .acct-title {
@@ -56,6 +57,7 @@
   font-size: var(--text-md);
   font-weight: bold;
   text-decoration: none;
+  color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
 }
 
 .acct-order-num:hover {
@@ -69,7 +71,7 @@
 .acct-table-header {
   font-weight: bold;
   font-size: 1.15em;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
   margin-bottom: 5px;
 }
 
