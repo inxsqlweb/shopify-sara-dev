@@ -101,8 +101,8 @@
 
       :root {
         --brand-color-primary: {{shop.brand.colors.primary[0].background | default: "#175381"}};
-        --brand-color-secondary: {{shop.brand.colors.secondary[0].background}};
-        --brand-color-accent: {{shop.brand.colors.primary[0].foreground}};
+        --brand-color-secondary: {{shop.brand.colors.secondary[0].background | default: "#3992D3"}};
+        --brand-color-accent: {{shop.brand.colors.primary[0].foreground | default: "#B7322E"}};
         
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
