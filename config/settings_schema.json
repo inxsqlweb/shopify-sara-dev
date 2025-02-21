@@ -1478,7 +1478,7 @@
       {
         "type": "font_picker",
         "id": "acct_data_labels",
-        "label": "Table Label Font",
+        "label": "Data Labels Font",
         "default": "roboto_condensed_n4"
       }
     ]
