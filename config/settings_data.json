@@ -128,7 +128,7 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
-    "acct_dashboard_link_color": "",
+    "acct_dashboard_link_color": "#952f2f",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
