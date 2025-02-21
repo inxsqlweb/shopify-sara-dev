@@ -129,6 +129,7 @@
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
     "acct_dashboard_link_color": "",
+    "acct_data_labels": "roboto_n7",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
