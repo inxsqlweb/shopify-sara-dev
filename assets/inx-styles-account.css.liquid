@@ -49,9 +49,10 @@
 
 .acct-label {  
   color: #555555;
+  display: inline-block;
   font-weight: {{ settings.acct_data_labels.weight }};
   font-family: {{ settings.acct_data_labels.family }}, {{ settings.acct_data_labels.fallback_families }};
-  margin-right: 0.35em;  
+  margin-right: 0.35em;
 }
 
 .acct-table .acct-label {
@@ -72,11 +73,12 @@
 
 .acct-table > div {
   overflow: hidden;
+  word-break: break-word;
 }
 
 .acct-table-header {
   font-weight: bold;
-  font-size: 1.15em;
+  font-size: 1em;
   border-bottom: 2px solid {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
   margin-bottom: 5px;
 }

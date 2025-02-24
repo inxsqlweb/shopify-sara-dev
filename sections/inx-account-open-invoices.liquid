@@ -4,58 +4,169 @@
 
 
 {% comment %} {%- if customer -%} {% endcomment %}
-<section class="page-width">  
-  <div class="container-fluid text-xs">  
-    <div class="row d-none d-xl-flex acct-table acct-table-header">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <span>Order #</span>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span>Type</span>
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span>Date</span>
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span>Status</span>
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1">
-        <span>PO #</span>
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span>Ordered By</span>
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span>Amount</span>
-      </div>
-    </div>
-  </div>
-
+<section class="page-width">
   <div class="container-fluid text-xs">
-    <div class="row acct-table">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="javascript:void(0);" class="acct-link acct-order-num jsOrderDetailsLink" data-order-id="1">W-12345</a>
+    <div class="row">
+      <div class="col-12 col-sm-4 col-md-3 col-xl-2 mb-5">
+        <table class="table-condensed text-xs w-100">
+          <thead>
+            <tr>
+              <th colspan="2" class="acct-table-header">Totals</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Future</td>
+              <td class="text-right">$0.00</td>
+            </tr>
+            <tr>
+              <td>Current</td>
+              <td class="text-right">$0.00</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td class="text-right">$0.00</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td class="text-right">$59.31</td>
+            </tr>
+            <tr>
+              <td>90</td>
+              <td class="text-right">$0.00</td>
+            </tr>
+            <tr>
+              <td>120</td>
+              <td class="text-right">$23,157.43</td>
+            </tr>
+            <tr>
+              <td class="font-body-bold">Total</td>
+              <td class="font-body-bold text-right">$23,216.74</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Order
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Web Order Pending
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>123456
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Ronald Campbell
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$123.45
-      </div>
-      <div class="col-12">
-        <hr class="list-divider" />
+
+      <div class="col-12 col-md-9 col-xl-10 line-condensed">
+        <div class="row d-none d-xl-flex acct-table acct-table-header text-xs">
+          <div class="col-12 col-lg-3 col-xl">
+            <span>Invoice #</span>
+          </div>
+          <div class="col-5 col-md-4 col-lg-5 col-xl acct-date">
+            <span>Date</span>
+          </div>
+          <div class="col-7 col-md-3 col-lg-2 col-xl">
+            <span>Future Due</span>
+          </div>
+          <div class="col-7 col-md-5 col-lg-3 col-xl">
+            <span>Current</span>
+          </div>
+          <div class="col-5 col-md-3 col-lg-2 col-xl">
+            <span>31-60</span>
+          </div>
+          <div class="col-7 col-md-4 col-lg-3 col-xl">
+            <span>61-90</span>
+          </div>
+          <div class="col-5 col-md-5 col-lg-3 col-xl">
+            <span>91-120</span>
+          </div>
+          <div class="col-5 col-md-5 col-lg-3 col-xl">
+            <span>120+</span>
+          </div>
+        </div>
+
+        <div class="row acct-table line-condensed">
+          <div class="col-6 col-sm-4 col-xl">
+            <a href="javascript:void(0);" class="acct-link acct-order-num"
+              data-order-id="1"># 111234</a>
+          </div>
+          <div class="col-6 col-sm-8 col-xl acct-date">
+            <span class="acct-label">Date:</span>01/01/2025
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">Future Due:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">Current:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">31-60:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">61-90:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">91-120:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">120+:</span>$123.45
+          </div>
+          <div class="col-12">
+            <hr class="list-divider" />
+          </div>
+        </div>
+
+        <div class="row acct-table line-condensed">
+          <div class="col-6 col-sm-4 col-xl">
+            <a href="javascript:void(0);" class="acct-link acct-order-num"
+              data-order-id="1"># 111234</a>
+          </div>
+          <div class="col-6 col-sm-8 col-xl acct-date">
+            <span class="acct-label">Date:</span>01/01/2025
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">Future Due:</span>$510.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">Current:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label no-wrap">31-60:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label no-wrap">61-90:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label no-wrap">91-120:</span>$100.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">120+:</span>$2345.45
+          </div>
+          <div class="col-12">
+            <hr class="list-divider" />
+          </div>
+        </div>
+
+        <div class="row acct-table line-condensed">
+          <div class="col-6 col-sm-4 col-xl">
+            <a href="javascript:void(0);" class="acct-link acct-order-num"
+              data-order-id="1"># 111784</a>
+          </div>
+          <div class="col-6 col-sm-8 col-xl acct-date">
+            <span class="acct-label">Date:</span>12/01/2025
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">Future Due:</span>$100.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">Current:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">31-60:</span>$60.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">61-90:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">91-120:</span>$0.00
+          </div>
+          <div class="col-6 col-sm-4 col-xl">
+            <span class="acct-label">120+:</span>$1203.45
+          </div>
+          <div class="col-12">
+            <hr class="list-divider" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -63,7 +174,8 @@
 
 {% comment %} {%- else -%}
 <section class="page-width">
-    <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.</p>  
+  <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.
+  </p>
 </section>
 {%- endif -%} {% endcomment %}
 
@@ -72,9 +184,9 @@
 "name": "Orders",
 "settings": [
 {
-        "type": "paragraph",
-        "content": "Account dashboard style settings can be found in Theme Settings. Scroll down to Account Dashboard - INxSQL." 
-      }
+"type": "paragraph",
+"content": "Account dashboard style settings can be found in Theme Settings. Scroll down to Account Dashboard - INxSQL."
+}
 ]
 }
 {% endschema %}

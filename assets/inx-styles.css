@@ -50,6 +50,10 @@ hr.list-divider {
   }
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
 .page-width > .container-fluid {
   padding-right: 0;
   padding-left: 0;
@@ -101,6 +105,10 @@ hr.list-divider {
 ul.no-bullets {
   list-style-type: none;
   padding: 0;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .word-break {
