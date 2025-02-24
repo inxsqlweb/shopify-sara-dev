@@ -9,7 +9,7 @@
   height: 100%;
   box-shadow: 1px 1px 3px lightgray; }
 
-.acct-box a {
+.acct-box a, .acct-box a:active, .acct-box a:focus, .acct-box a:visited {
     display: block; 
     text-decoration: none;
     color: {{ settings.acct_dashboard_link_color | default: "var(--brand-color-primary)" }};
