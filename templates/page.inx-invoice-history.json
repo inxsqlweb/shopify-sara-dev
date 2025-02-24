@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [],
+      "settings": { "padding_top": 20, "padding_bottom": 0 }
+    },
+    
+    "dashboard_link": {
+        "type": "inx-account-dashboard-link"
+    },  
+    
+    "invoice_history": {
+      "type": "inx-account-invoice-history",
+      "settings": { "acct-icon-color": "" }
+    }
+  },
+  "order": ["main", "dashboard_link", "invoice_history"]
+}
