@@ -9,8 +9,8 @@
          <div class="col-12 d-flex">
             <i class="fa-solid fa-user fa-3x me-3"></i>
             <ul class="m-0 no-bullets line-condensed">
-                <li>{{customer.name}}Sara</li>
-                <li>{{customer.email}}aldfkjlaksjdfl</li>
+                <li>{{customer.name}}</li>
+                <li>{{customer.email}}</li>
                 {% comment %} <li>{{customer.current_company}}</li> {% endcomment %}
             </ul>
         </div>
@@ -20,63 +20,63 @@
   <div class="container-fluid">
       <div class="row align-items-stretch">
           <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-              <div class="box">
-                  <a href="/pages/orders" alt="Order Lookup">
-                      <i class="fa-solid fa-search acct-icon"></i>
-                      <span class="acct-title">Orders</span>
-                  </a>
-                  <span class="acct-desc"> View Open & Closed Orders</span>
-              </div>
+            <a href="/pages/orders" alt="Order Lookup" class="box">
+                <div>
+                    <i class="fa-solid fa-search acct-icon"></i>
+                    <span class="acct-title">Orders</span>
+                </div>
+                <span class="acct-desc"> View Open & Closed Orders</span>
+            </a>
           </div>
 
           <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-              <div class="box">
-                  <a href="/pages/blanket-orders" alt="Blanket Order Lookup">
+              <a href="/pages/blanket-orders" alt="Blanket Order Lookup" class="box">
+                  <div>
                       <i class="fa-solid fa-file-export acct-icon"></i>
                       <span class="acct-title">Blanket Orders</span>
-                  </a>
+                  </div>
                   <span class="acct-desc"> View Open & Closed Blanket Orders</span>
-              </div>
+              </a>
           </div>
 
           <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-              <div class="box">
-                  <a href="/pages/quotes" alt="Quote Lookup">
+              <a href="/pages/quotes" alt="Quote Lookup" class="box">
+                  <div>
                       <i class="fa-solid fa-file-signature acct-icon"></i>
                       <span class="acct-title">Quotes</span>
-                  </a>
+                  </div>
                   <span class="acct-desc"> View Open Quotes</span>
-              </div>
+              </a>
           </div>
 
           <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-              <div class="box">
-                  <a href="/pages/rma" alt="RMA Lookup">
+              <a href="/pages/rma" alt="RMA Lookup" class="box">
+                  <div>
                       <i class="fa-solid fa-reply acct-icon"></i>
                       <span class="acct-title">Return Request (RMA)</span>
-                  </a>
+                  </div>
                   <span class="acct-desc"> View Open Orders Eligible for RMA</span>
-              </div>
+              </a>
           </div>
 
          <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-            <div class="box">
-                <a href="/pages/open-invoices" alt="View Open Invoices">
+            <a href="/pages/open-invoices" alt="View Open Invoices" class="box">
+                <div>
                     <i class="fa-solid fa-file-invoice-dollar acct-icon"></i>
                     <span class="acct-title">Open Invoices</span>
-                </a>
+                </div>
                 <span class="acct-desc"> View & Print Unpaid Invoices</span>
-            </div>
+            </a>
         </div>
 
          <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-            <div class="box">
-                <a href="/pages/invoice-history" alt="View Invoice History">
+            <a href="/pages/invoice-history" alt="View Invoice History" class="box">
+                <div>
                     <i class="fa-solid fa-history acct-icon"></i>
                     <span class="acct-title">Invoice History</span>
-                </a>
+                </div>
                 <span class="acct-desc"> View Invoice & Payment History</span>
-            </div>
+            </a>
         </div>   
     </div>
   </div>
