@@ -1,6 +1,6 @@
+<script src="{{ 'inx-account-data.js' | asset_url }}" defer="defer"></script>
+
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
-
-
 
 {% comment %} {%- if customer -%} {% endcomment %}
 <section class="page-width">
@@ -20,7 +20,7 @@
   <div class="container-fluid">
       <div class="row align-items-stretch">
           <div class="col-6 col-md-4 col-lg-3 text-center acct-box">
-            <a href="/pages/orders" alt="Order Lookup" class="box">
+            <a class="box jsDashboardLink" data-action="orders" href="/pages/orders" alt="Order Lookup">
                 <div>
                     <i class="fa-solid fa-search acct-icon"></i>
                     <span class="acct-title">Orders</span>

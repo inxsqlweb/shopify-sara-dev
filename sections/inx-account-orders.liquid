@@ -1,10 +1,11 @@
 <script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
+{% assign orders_data = customer.metafields.inxsql.inxsql_orders.value %}
+
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
 
-
 {% comment %} {%- if customer -%} {% endcomment %}
-<section class="page-width" id="orders-section" data-total="" data-type="orders">  
+<section class="page-width" id="orders-section" data-total="{{ orders_data.solistingDS.size }}" data-type="orders">  
   <div class="container-fluid text-xs">
     <div class="row my-5">
       <div class="col-12 col-sm-6">
