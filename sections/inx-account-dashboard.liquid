@@ -2,7 +2,7 @@
 
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
-{% comment %} {%- if customer -%} {% endcomment %}
+{%- if customer -%}
 <section class="page-width">
   <div class="container-fluid">
       <div class=row>
@@ -82,11 +82,11 @@
   </div>
 </section>
 
-{% comment %} {%- else -%}
+{%- else -%} 
 <section class="page-width">
     <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.</p>  
 </section>
-{%- endif -%} {% endcomment %}
+{%- endif -%} 
 
 {% schema %}
   {
