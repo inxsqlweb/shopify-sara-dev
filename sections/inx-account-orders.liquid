@@ -145,10 +145,10 @@
           <ul class="no-bullets line-condensed">
             <li class="acct-label">Ship To</li>
             <li>{{ order.ccod_shipto }}</li>
-            <li>{{ order.ohdr_shipadd1 }}</li>
-            <li>{{ order.ohdr_shipadd2 }}</li>
-            <li>{{ order.ohdr_shipcity -}}, {{- order.ohdr_shipstate -}} {{- order.ohdr_shipzip }}</li>
-            <li>{{ order.ohdr_shipcountry }}</li>
+            <li>{{ order.ccod_address1 }}</li>
+            <li>{{ order.ccod_address2 }}</li>
+            <li>{{ order.ccod_city -}}, {{- order.ccod_state -}} {{- order.ccod_zip }}</li>
+            <li>{{ order.ccod_country }}</li>
           </ul>
         </div>
       </div>
