@@ -1,5 +1,6 @@
 <script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
-{%- assign orders_data = customer.metafields.inxsql.inxsql_orders.value -%}
+
+{%- assign orders_data = customer.metafields.inxsql_customer.inxsql_orders.value -%}
 
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
