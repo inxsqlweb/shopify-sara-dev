@@ -119,6 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
               row.style.display = 'none';
             }
       })
+      if (!searchValue) {
+        initializePagination(actionType);
+      }
   });
 
   //Item search clear input button
