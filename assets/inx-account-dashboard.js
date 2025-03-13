@@ -172,9 +172,19 @@ function showOrdersSection() {
   const paginationContainer = document.getElementById("jsPaginationContainer");
   const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
   const backToDashboard = document.getElementById("jsBackToDashboard");
+  const itemSearch = document.getElementById('jsOrderItemSearch');
+  const searchValue = itemSearch.value;
 
   if (ordersSection) ordersSection.style.display = "block";
-  if (paginationContainer) paginationContainer.style.display = "block";
+  if (paginationContainer) {
+    if (!searchValue) {
+      paginationContainer.style.display = "block";
+    }
+      else {
+        paginationContainer.style.display = "none";
+      }
+  }  
+  
   if (backToDashboard) backToDashboard.style.display = "block";
   if (orderDetailsSection) orderDetailsSection.style.display = "none";
 
