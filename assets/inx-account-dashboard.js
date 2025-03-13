@@ -120,7 +120,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
       })
       if (!searchValue) {
-        initializePagination(actionType);
+        const activeSection = document.querySelector("[data-type]");
+        if (activeSection) {
+          const actionType = activeSection.getAttribute("data-type");
+          initializePagination(actionType);
+        }
       }
   });
 
