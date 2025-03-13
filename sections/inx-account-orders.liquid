@@ -96,12 +96,16 @@
 <section class="page-width jsOrderDetailsSection" id="order-details-{{ order.ohdr_order }}"
   data-order-id="{{ order.ohdr_order }}" style="display:none;">
   <div class="container-fluid">
+    <div class="row nearer-page-title">
+      <div class="col-12">        
+        <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
+      class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
+      </div>
+    </div>
     <div class="box">
       <div class="row">
-        <div class="col-12 mb-4 d-flex justify-content-between">
+        <div class="col-12">
           <h2 class="mt-0">Order {{ order.ohdr_order }}</h2>
-          <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
-              class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
         </div>
         <div class="col-12 col-md-6">
           <table class="table-condensed table-row1-label">
@@ -242,7 +246,7 @@
     {%- endfor -%}
 
     <div class="row">
-      <div class="col-12 d-flex justify-content-end">
+      <div class="col-12">
         <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
             class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
       </div>
