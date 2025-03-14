@@ -146,14 +146,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-const ordersSection = document.querySelector(`[data-type="orders"]`);
-  const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
-  const backToDashboard = document.getElementById("jsBackToDashboard");
-
 /*Show order details for a specific order ID.@param {string} orderId - The order ID to display details for.*/
-function showOrderDetails(orderId) {
-  
+const ordersSection = document.querySelector(`[data-type="orders"]`);
+const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
+const backToDashboard = document.getElementById("jsBackToDashboard");
 
+function showOrderDetails(orderId) { 
   if (ordersSection) ordersSection.style.display = "none";
   if (paginationContainer) paginationContainer.style.display = "none";
   if (backToDashboard) backToDashboard.style.display = "none";
@@ -165,8 +163,7 @@ function showOrderDetails(orderId) {
 }
 
 /* Show the orders section and hide details.*/
-function showOrdersSection() {
-  
+function showOrdersSection() {  
   const itemSearch = document.getElementById('jsOrderItemSearch');
   const searchValue = itemSearch.value;
 
