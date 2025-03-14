@@ -2,11 +2,10 @@
 let currentPage = 1;
 let currentActionType = "";
 const pageSize = 10;
- const pageInfo = document.getElementById("jsPageInfo");
-  const prevBtn = document.getElementById("jsPrevBtn");
-  const nextBtn = document.getElementById("jsNextBtn");
-
-    const paginationContainer = document.getElementById("jsPaginationContainer");
+const pageInfo = document.getElementById("jsPageInfo");
+const prevBtn = document.getElementById("jsPrevBtn");
+const nextBtn = document.getElementById("jsNextBtn");
+const paginationContainer = document.getElementById("jsPaginationContainer");
 
 //We will store all .jsOrderRow elements and a separate "filteredRows"
 let allRows = [];
@@ -37,8 +36,7 @@ function renderPage(page, actionType) {
 
 /*Update the pagination controls.@param {number} totalItems - The total number of items.*/
 function updatePagination(totalItems) {
-  const totalPages = Math.ceil(totalItems / pageSize);
- 
+  const totalPages = Math.ceil(totalItems / pageSize); 
 
   if (pageInfo) {
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
@@ -82,9 +80,7 @@ function initializePagination(actionType) {
 
 /*Initialize the dashboard functionality.*/
 document.addEventListener("DOMContentLoaded", function () {
-  /*Pagination Buttons*/
-  
-
+  /*Pagination Buttons*/ 
   if (prevBtn) prevBtn.addEventListener("click", prevPage);
   if (nextBtn) nextBtn.addEventListener("click", nextPage);
   // Determine the action type based on the active section
@@ -150,11 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/*Show order details for a specific order ID.@param {string} orderId - The order ID to display details for.*/
-function showOrderDetails(orderId) {
-  const ordersSection = document.querySelector(`[data-type="orders"]`);
+const ordersSection = document.querySelector(`[data-type="orders"]`);
   const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
   const backToDashboard = document.getElementById("jsBackToDashboard");
+
+/*Show order details for a specific order ID.@param {string} orderId - The order ID to display details for.*/
+function showOrderDetails(orderId) {
+  
 
   if (ordersSection) ordersSection.style.display = "none";
   if (paginationContainer) paginationContainer.style.display = "none";
@@ -168,9 +166,7 @@ function showOrderDetails(orderId) {
 
 /* Show the orders section and hide details.*/
 function showOrdersSection() {
-  const ordersSection = document.querySelector(`[data-type="orders"]`);
-  const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
-  const backToDashboard = document.getElementById("jsBackToDashboard");
+  
   const itemSearch = document.getElementById('jsOrderItemSearch');
   const searchValue = itemSearch.value;
 
