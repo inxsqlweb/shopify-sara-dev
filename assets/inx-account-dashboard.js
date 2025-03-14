@@ -2,6 +2,11 @@
 let currentPage = 1;
 let currentActionType = "";
 const pageSize = 10;
+ const pageInfo = document.getElementById("jsPageInfo");
+  const prevBtn = document.getElementById("jsPrevBtn");
+  const nextBtn = document.getElementById("jsNextBtn");
+
+    const paginationContainer = document.getElementById("jsPaginationContainer");
 
 //We will store all .jsOrderRow elements and a separate "filteredRows"
 let allRows = [];
@@ -33,9 +38,7 @@ function renderPage(page, actionType) {
 /*Update the pagination controls.@param {number} totalItems - The total number of items.*/
 function updatePagination(totalItems) {
   const totalPages = Math.ceil(totalItems / pageSize);
-  const pageInfo = document.getElementById("jsPageInfo");
-  const prevBtn = document.getElementById("jsPrevBtn");
-  const nextBtn = document.getElementById("jsNextBtn");
+ 
 
   if (pageInfo) {
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
@@ -80,8 +83,7 @@ function initializePagination(actionType) {
 /*Initialize the dashboard functionality.*/
 document.addEventListener("DOMContentLoaded", function () {
   /*Pagination Buttons*/
-  const prevBtn = document.getElementById("jsPrevBtn");
-  const nextBtn = document.getElementById("jsNextBtn");
+  
 
   if (prevBtn) prevBtn.addEventListener("click", prevPage);
   if (nextBtn) nextBtn.addEventListener("click", nextPage);
@@ -112,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
   itemSearch.addEventListener('input', function() {     
     const searchValue = this.value.trim().toLowerCase();
     const activeSection = document.querySelector("[data-type]");
-    const paginationContainer = document.getElementById("jsPaginationContainer");
 
       orderRows.forEach(row => {
         const rowItems = row.dataset.items;
@@ -152,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /*Show order details for a specific order ID.@param {string} orderId - The order ID to display details for.*/
 function showOrderDetails(orderId) {
   const ordersSection = document.querySelector(`[data-type="orders"]`);
-  const paginationContainer = document.getElementById("jsPaginationContainer");
   const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
   const backToDashboard = document.getElementById("jsBackToDashboard");
 
@@ -169,7 +169,6 @@ function showOrderDetails(orderId) {
 /* Show the orders section and hide details.*/
 function showOrdersSection() {
   const ordersSection = document.querySelector(`[data-type="orders"]`);
-  const paginationContainer = document.getElementById("jsPaginationContainer");
   const orderDetailsSection = document.getElementById("jsOrderDetailsSection");
   const backToDashboard = document.getElementById("jsBackToDashboard");
   const itemSearch = document.getElementById('jsOrderItemSearch');
