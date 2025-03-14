@@ -31,11 +31,11 @@
   function fetchDataForAction(actionType) {
     const endpointMap = {
       orders: "https://sara-dev-site.myshopify.com/apps/proxy?action=orders",
-      blanket: "https://inxsql-test-store.myshopify.com/apps/proxy?action=blanket",
-      quotes: "https://inxsql-test-store.myshopify.com/apps/proxy?action=quotes",
-      rma: "https://inxsql-test-store.myshopify.com/apps/proxy?action=rma",
-      openInvoices: "https://inxsql-test-store.myshopify.com/apps/proxy?action=openInvoices",
-      invoiceHistory: "https://inxsql-test-store.myshopify.com/apps/proxy?action=invoiceHistory",
+      blanket: "https://sara-dev-site.myshopify.com/apps/proxy?action=blanket",
+      quotes: "https://sara-dev-site.myshopify.com/apps/proxy?action=quotes",
+      rma: "https://sara-dev-site.myshopify.com/apps/proxy?action=rma",
+      openInvoices: "https://sara-dev-site.myshopify.com/apps/proxy?action=openInvoices",
+      invoiceHistory: "https://sara-dev-site.myshopify.com/apps/proxy?action=invoiceHistory",
       // Add more action endpoints as needed
     };
   
