@@ -1,53 +1,61 @@
 <script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
+
+{% assign open_invoices_data = customer.metafields.inxsql_customer.inxsql_open_invoices.value %}
+
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
-
-
-{% comment %} {%- if customer -%} {% endcomment %}
-<section class="page-width">
+{%- if customer -%}
+<section class="page-width" id="open-invoices-section" data-total="{{  open_invoices_data.dataset.size }}" data-type="openInvoices">
   <div class="container-fluid text-xs">
     <div class="row">
       <div class="col-12 col-sm-4 col-md-3 col-xl-2 mb-5">
-        <table class="table-condensed text-xs w-100">
+        <table id="totals-table" class="table-condensed text-xs w-100">
           <thead>
             <tr>
               <th colspan="2" class="acct-table-header">Totals</th>
             </tr>
           </thead>
           <tbody>
+            {% if open_invoices_data.dataset and open_invoices_data.dataset.size > 0 %}
             <tr>
               <td>Future</td>
-              <td class="text-right">$0.00</td>
+              <td class="text-right">${{ open_invoices_data.amtFutureTotal | round: 2 }}</td>
             </tr>
             <tr>
               <td>Current</td>
-              <td class="text-right">$0.00</td>
+              <td class="text-right">${{ open_invoices_data.amtCurTotal | round: 2 }}</td>
             </tr>
             <tr>
               <td>30</td>
-              <td class="text-right">$0.00</td>
+              <td class="text-right">${{ open_invoices_data.amt30Total | round: 2 }}</td>
             </tr>
             <tr>
               <td>60</td>
-              <td class="text-right">$59.31</td>
+              <td class="text-right">${{ open_invoices_data.amt60Total | round: 2 }}</td>
             </tr>
             <tr>
               <td>90</td>
-              <td class="text-right">$0.00</td>
+              <td class="text-right">${{ open_invoices_data.amt90Total | round: 2 }}</td>
             </tr>
             <tr>
               <td>120</td>
-              <td class="text-right">$23,157.43</td>
+              <td class="text-right">${{ open_invoices_data.amt120Total | round: 2 }}</td>
             </tr>
             <tr>
               <td class="font-body-bold">Total</td>
-              <td class="font-body-bold text-right">$23,216.74</td>
+              <td class="font-body-bold text-right">${{ open_invoices_data.amtTotal | round: 2 }}</td>
             </tr>
+            {%- else -%}
+            <tr>
+              <td colspan="2">No data to display.</td>
+            </tr>
+          {%- endif -%}
           </tbody>
         </table>
       </div>
 
       <div class="col-12 col-md-9 col-xl-10 line-condensed">
+        {% if open_invoices_data.dataset and open_invoices_data.dataset.size > 0 %}
         <div class="row d-none d-xl-flex acct-table acct-table-header text-xs">
           <div class="col-12 col-lg-3 col-xl">
             <span>Invoice #</span>
@@ -74,97 +82,49 @@
             <span>120+</span>
           </div>
         </div>
-
-        <div class="row acct-table line-condensed">
+        {% for invoice in open_invoices_data.dataset %}
+        <div class="row acct-table line-condensed jsOrderRow">
           <div class="col-6 col-sm-4 col-xl">
-            <a href="" class="acct-link acct-order-num"
-              data-order-id="1"><span class="acct-label">#</span>111234</a>
+            <a href="javascript:void(0);" class="acct-link acct-order-num"
+              data-order-id="{{  invoice.copn_apply }}"><span class="acct-label">#</span>{{- invoice.copn_apply | strip -}}</a>
           </div>
           <div class="col-6 col-sm-8 col-xl acct-date">
-            <span class="acct-label">Date:</span>01/01/2025
+            <span class="acct-label">Date:</span>{{ invoice.copn_date | date: '%m/%d/%Y' }}
           </div>
           <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">Future Due:</span>$0.00
+            <span class="acct-label">Future Due:</span>${{ invoice.amtfuture | default: 0 | round: 2 }}
           </div>
           <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">Current:</span>$0.00
+            <span class="acct-label">Current:</span>${{ invoice.amtcur | default: 0 | round: 2 }}
           </div>
           <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">31-60:</span>$0.00
+            <span class="acct-label">31-60:</span>${{ invoice.amt30 | default: 0 | round: 2 }}
           </div>
           <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">61-90:</span>$0.00
+            <span class="acct-label">61-90:</span>${{ invoice.amt60 | default: 0 | round: 2 }}
           </div>
           <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">91-120:</span>$0.00
+            <span class="acct-label">91-120:</span>${{ invoice.amt90 | default: 0 | round: 2 }}
           </div>
           <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">120+:</span>$123.45
+            <span class="acct-label">120+:</span>${{ invoice.amt120 | default: 0 | round: 2 }}
           </div>
           <div class="col-12">
             <hr class="list-divider" />
           </div>
         </div>
-
-        <div class="row acct-table line-condensed">
-          <div class="col-6 col-sm-4 col-xl">
-            <a href="" class="acct-link acct-order-num"
-              data-order-id="1"><span class="acct-label">#</span>111234</a>
-          </div>
-          <div class="col-6 col-sm-8 col-xl acct-date">
-            <span class="acct-label">Date:</span>01/01/2025
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">Future Due:</span>$510.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">Current:</span>$0.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label no-wrap">31-60:</span>$0.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label no-wrap">61-90:</span>$0.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label no-wrap">91-120:</span>$100.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">120+:</span>$2345.45
-          </div>
-          <div class="col-12">
-            <hr class="list-divider" />
+        {%- endfor -%}
+       {%- else -%}
+        <div class="row">
+          <div class="col-12 text-center">
+            <p>No data to display.</p>
           </div>
         </div>
+        {%- endif -%}
 
-        <div class="row acct-table line-condensed">
-          <div class="col-6 col-sm-4 col-xl">
-            <a href="" class="acct-link acct-order-num"
-              data-order-id="1"><span class="acct-label">#</span>111784</a>
-          </div>
-          <div class="col-6 col-sm-8 col-xl acct-date">
-            <span class="acct-label">Date:</span>12/01/2025
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">Future Due:</span>$100.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">Current:</span>$0.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">31-60:</span>$60.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">61-90:</span>$0.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">91-120:</span>$0.00
-          </div>
-          <div class="col-6 col-sm-4 col-xl">
-            <span class="acct-label">120+:</span>$1203.45
-          </div>
+        <div class="row">
           <div class="col-12">
-            <hr class="list-divider" />
+            {% render 'inx-pagination' %}
           </div>
         </div>
       </div>
@@ -172,12 +132,12 @@
   </div>
 </section>
 
-{% comment %} {%- else -%}
+{%- else -%}
 <section class="page-width">
   <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.
   </p>
 </section>
-{%- endif -%} {% endcomment %}
+{%- endif -%}
 
 {% schema %}
 {
