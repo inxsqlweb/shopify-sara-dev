@@ -6,8 +6,8 @@
 
 
 {%- if customer -%}
-<section class="page-width" id="orders-section" data-total="{{ blanket_orders_data.solistingDS.size }}"
-  data-type="orders">
+<section class="page-width" id="orders-section"
+data-total="{{ blanket_orders_data.solistingDS.size }}" data-type="orders">
   <div class="container-fluid text-xs">
     <div class="row my-5">
       <div class="col-12 col-sm-6">
@@ -45,8 +45,8 @@
     {% for order in blanket_orders_data.solistingDS %}
     {% assign all_items = '' %}
     {% if order.lines %}
-    {% assign item_array = order.lines | map: 'odtl_item' %}
-    {% assign all_items = item_array | join: ',' %}
+      {% assign item_array = order.lines | map: 'odtl_item' %}
+      {% assign all_items = item_array | join: ',' %}
     {% endif %}
     <div class="row acct-table jsOrderRow" data-order-id="{{ order.ohdr_order }}"
       data-items="{{ all_items | downcase }}">
@@ -74,7 +74,7 @@
       <div class="col-12">
         <hr class="list-divider" />
       </div>
-    </div>l
+    </div>
     {%- endfor -%}
     {%- else -%}
     <div class="row">
@@ -100,7 +100,7 @@
       <div class="row nearer-page-title">
         <div class="col-12">        
           <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
-        class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
+        class="fa-solid fa-chevron-left icon-l"></i>Back to Blanket Orders</button>
         </div>
       </div>
       <div class="box">
@@ -249,7 +249,7 @@
       <div class="row">
         <div class="col-12">
           <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
-              class="fa-solid fa-chevron-left icon-l"></i>Back to Orders</button>
+              class="fa-solid fa-chevron-left icon-l"></i>Back to Blanket Orders</button>
         </div>
       </div>
     </div>

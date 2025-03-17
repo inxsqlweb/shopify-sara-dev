@@ -1,10 +1,12 @@
 <script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
+
+{% assign quotes_data = customer.metafields.inxsql_customer.inxsql_quotes.value %}
+
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
 
-
-{% comment %} {%- if customer -%} {% endcomment %}
-<section class="page-width" id="orders-section" data-total="" data-type="orders">  
+{%- if customer -%}
+<section class="page-width" id="orders-section" data-total="{{ quotes_data.solistingDS.size }}" data-type="orders">
   <div class="container-fluid text-xs">
     <div class="row my-5">
       <div class="col-12 col-sm-6">
@@ -38,227 +40,95 @@
   </div>
 
   <div class="container-fluid text-xs">
-    <div class="row acct-table jsOrderRow">
+    {%- if quotes_data.solistingDS and quotes_data.solistingDS.size > 0 -%}
+    {%- for order in quotes_data.solistingDS -%}
+    {%- assign all_items = '' -%}
+    {%- if order.lines -%}
+    {%- assign item_array = order.lines | map: 'odtl_item' -%}
+    {%- assign all_items = item_array | join: ',' -%}
+    {%- endif -%}
+    <div class="row acct-table jsOrderRow" data-order-id="{{ order.ohdr_order }}"
+      data-items="{{ all_items | downcase }}">
       <div class="col-12 col-lg-3 col-xl-2">
-        <a href="javascript:void(0);" class="acct-link acct-order-num jsOrderDetailsLink" data-order-id="1">W-12345</a>
+        <a href="javascript:void(0);" class="acct-link acct-order-num jsOrderDetailsLink"
+          data-order-id="{{  order.ohdr_order }}">{{- order.ohdr_order | strip -}}</a>
       </div>
       <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Order
+        <span class="acct-label">Type:</span>{{ order.type_desc | default: 'N/A' }}
       </div>
       <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
+        <span class="acct-label">Date:</span>{{ order.ohdr_date | date: '%m/%d/%Y' }}
       </div>
       <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Web Order Pending
+        <span class="acct-label">Status:</span>{{ order.ocod_description | default: 'N/A' }}
       </div>
       <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>123456
+        <span class="acct-label">PO #</span>{{ order.ohdr_custpo | default: 'N/A' }}
       </div>
       <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Ronald Campbell
+        <span class="acct-label">Ordered By:</span>{{ order.ohdr_orderby | default: 'N/A' }}
       </div>
       <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$123.45
+        <span class="acct-label">Amount:</span>${{ order.ohdr_amount | default: '0.00' }}
       </div>
       <div class="col-12">
         <hr class="list-divider" />
       </div>
     </div>
-
-    <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-link acct-order-num">MX-00050304</a>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Direct Sale
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Notes - Needs Review
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>987654321
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Sara Ahlers
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$1234.56
-      </div>
-      <div class="col-12">
-        <hr class="list-divider" />
+    {%- endfor -%}
+    {%- else -%}
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>No data to display.</p>
       </div>
     </div>
+    {%- endif -%}
 
-    <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-link acct-order-num">W-654321</a>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Order
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/15/2025
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Open
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>789456
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Sara Ahlers
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$34.56
-      </div>
+    <div class="row">
       <div class="col-12">
-        <hr class="list-divider" />
-      </div>
-    </div>
-
-    <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-link acct-order-num">MX-123456</a>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Credit
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>75396
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Harry Potter
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$12.13
-      </div>
-      <div class="col-12">
-        <hr class="list-divider" />
-      </div>
-    </div>
-
-    <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-link acct-order-num">W-456123</a>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Order
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>12/01/2024
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Shopify Order
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>12345
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Hermoine Granger
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$2138.66
-      </div>
-      <div class="col-12">
-        <hr class="list-divider" />
-      </div>
-    </div>
-
-    <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-link acct-order-num">W-78945</a>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Order
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/13/2025
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Order Invoiced
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>42651
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Ron Weasley
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$63.24
-      </div>
-      <div class="col-12">
-        <hr class="list-divider" />
-      </div>
-    </div>
-
-    <div class="row acct-table jsOrderRow">
-      <div class="col-12 col-lg-3 col-xl-2">
-        <a href="" class="acct-link acct-order-num">MX-42651</a>
-      </div>
-      <div class="col-7 col-md-3 col-lg-2 col-xl-1 acct-type">
-        <span class="acct-label">Type:</span>Order
-      </div>
-      <div class="col-5 col-md-4 col-lg-5 col-xl-2 acct-date">
-        <span class="acct-label">Date:</span>01/31/2025
-      </div>
-      <div class="col-7 col-md-5 col-lg-3 col-xl-2 flex-xl-grow-1">
-        <span class="acct-label">Status:</span>Shopify Order
-      </div>
-      <div class="col-5 col-md-3 col-lg-2 col-xl-1 word-break">
-        <span class="acct-label">PO #</span>142563
-      </div>
-      <div class="col-7 col-md-4 col-lg-3 col-xl-2">
-        <span class="acct-label">Ordered By:</span>Luna Lovegood
-      </div>
-      <div class="col-5 col-md-5 col-lg-3 col-xl-2">
-        <span class="acct-label">Amount:</span>$134.77
-      </div>
-      <div class="col-12">
-        <hr class="list-divider" />
+        {% render 'inx-pagination' %}
       </div>
     </div>
   </div>
 </section>
 
 {%- # Order Details Section -%}
-<section class="page-width jsOrderDetailsSection" id="order-details-1" style="display:none;" data-order-id="1">
+{%- for order in quotes_data.solistingDS -%}
+<section class="page-width jsOrderDetailsSection" id="order-details-{{ order.ohdr_order }}"
+  data-order-id="{{ order.ohdr_order }}" style="display:none;">
   <div class="container-fluid">
+    <div class="row nearer-page-title">
+      <div class="col-12">        
+        <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
+      class="fa-solid fa-chevron-left icon-l"></i>Back to Quotes</button>
+      </div>
+    </div>
     <div class="box">
       <div class="row">
-        <div class="col-12 mb-4 d-flex justify-content-between">
-          <h2 class="mt-0">Order W-123456</h2>
-          <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i class="fa-solid fa-chevron-left icon-l"></i>Back to Quotes</button>
+        <div class="col-12">
+          <h2 class="mt-0">Order {{ order.ohdr_order }}</h2>
         </div>
         <div class="col-12 col-md-6">
           <table class="table-condensed table-row1-label">
             <tr>
               <td class="acct-label">Date</td>
-              <td>01/01/2025</td>
+              <td>{{ order.ohdr_date | date: '%m/%d/%Y' }}</td>
             </tr>
             <tr>
               <td class="acct-label">PO #</td>
-              <td>123456</td>
+              <td>{{ order.ohdr_custpo }}</td>
             </tr>
             <tr>
               <td class="acct-label">Ordered By</td>
-              <td>Harry Potter</td>
+              <td>{{ order.ohdr_orderby }}</td>
             </tr>
             <tr>
               <td class="acct-label">Status</td>
-              <td>Open</td>
+              <td>{{ order.ocod_description | default: order.ohdr_status | default: 'Open' }}</td>
             </tr>
             <tr>
               <td class="acct-label">Freight</td>
-              <td>My Freight</td>
+              <td>{{ order.ohdr_freightdescription | default: 'N/A' }}</td>
             </tr>
           </table>
         </div>
@@ -274,20 +144,22 @@
         <div class="col-12 col-md-6">
           <ul class="no-bullets line-condensed">
             <li class="acct-label">Bill To</li>
-            <li>Name</li>
-            <li>Address1</li>
-            <li>Address2</li>
-            <li>City, State Zip</li>
+            <li>{{ order.ccst_name }}</li>
+            <li>{{ order.ccst_address1 }}</li>
+            <li>{{ order.ccst_address2 }}</li>
+            <li>{{ order.ccst_city -}}, {{- order.ccst_state -}} {{- order.ccst_zip }}</li>
+            <li>{{ order.ccst_country }}</li>
           </ul>
         </div>
 
         <div class="col-12 col-md-6">
           <ul class="no-bullets line-condensed">
             <li class="acct-label">Ship To</li>
-            <li>Name</li>
-            <li>Address1</li>
-            <li>Address2</li>
-            <li>City, State Zip</li>
+            <li>{{ order.ccod_shipto }}</li>
+            <li>{{ order.ccod_address1 }}</li>
+            <li>{{ order.ccod_address2 }}</li>
+            <li>{{ order.ccod_city -}}, {{- order.ccod_state -}} {{- order.ccod_zip }}</li>
+            <li>{{ order.ccod_country }}</li>
           </ul>
         </div>
       </div>
@@ -297,15 +169,15 @@
           <table class="table-condensed table-row1-label">
             <tr>
               <td class="acct-label">Ship Via</td>
-              <td>UPS</td>
+              <td>{{ order.ohdr_shipviadesc }}</td>
             </tr>
             <tr>
               <td class="acct-label">Requested Ship Date</td>
-              <td>01/02/2025</td>
+              <td>{{ order.ohdr_reqdate | date: '%m/%d/%Y' }}</td>
             </tr>
             <tr>
               <td class="acct-label">Order Comments</td>
-              <td>My Order Comments</td>
+              <td>{{ order.ohdr_comments }}</td>
             </tr>
           </table>
         </div>
@@ -316,23 +188,23 @@
           <table class="table-condensed table-row1-label">
             <tr>
               <td class="acct-label">Subtotal</td>
-              <td>$10.00</td>
+              <td>${{ order.subtotal | default: '0.00' }}</td>
             </tr>
             <tr>
               <td class="acct-label">Tax</td>
-              <td>$1.60</td>
+              <td>${{ order.ohdr_taxamt | default: '0.00' }}</td>
             </tr>
             <tr>
               <td class="acct-label">Shipping & Handling</td>
-              <td>$0.00</td>
+              <td>${{ order.shippingandhandling | default: '0.00' }}</td>
             </tr>
             <tr>
               <td class="acct-label">Misc Fee</td>
-              <td>$0.00</td>
+              <td>${{ order.ohdr_miscamt | default: '0.00' }}</td>
             </tr>
             <tr>
               <td class="acct-label">Total</td>
-              <td class="font-body-bold">$11.60</td>
+              <td class="font-body-bold">${{ order.ohdr_amount | default: '0.00' }}</td>
             </tr>
           </table>
         </div>
@@ -346,38 +218,50 @@
         <p class="heading text-lg font-body-bold">Items</p>
       </div>
     </div>
-    <div class="row">
+
+    {%- for line in order.lines -%}
+      <div class="row">
         <div class="col-12 col-sm-8 col-md-8 col-xxl-9">
-            <ul class="no-bullets line-condensed my-0">
-              <li class="font-body-bold">INxSQL Golfball</li>
-              <li><span class="text-xs text-gray pe-2">Item #</span>123456</li> 
-              <li><span class="text-xs text-gray pe-2">Requested Ship Date:</span>01/01/2025</li>  
-              <li><span class="text-xs text-gray pe-2">Comments:</span>My comments</li> 
-              <li><span class="text-xs text-gray pe-2">Handle:</span></li>   
-            </ul>
-        </div>       
+          <ul class="no-bullets line-condensed my-0">
+            <li class="font-body-bold">{{ line.odtl_description }}</li>
+            <li><span class="text-xs text-gray pe-2">Item #</span>{{ line.odtl_item }}</li>
+            <li><span class="text-xs text-gray pe-2">Requested Ship Date:</span>{{ line.odtl_reqdate }}</li>
+            <li><span class="text-xs text-gray pe-2">Comments:</span>{{ line.odtl_comments }}</li>
+            <li><span class="text-xs text-gray pe-2">Handle:</span>{{ line.odtl_handle }}</li>
+          </ul>
+        </div>
 
         <div class="col-12 col-sm-4 col-md-4 col-xxl-3 mt-2 mt-sm-0">
-            {%- render 'buy-buttons', product: product -%}
+          {%- assign product = all_products[line.odtl_item_handle] -%}
+            {%- if product -%}
+              {%- render 'buy-buttons', product: product -%}
+            {%- else -%}
+              <span>Product not found in store.</span>    
+          {%- endif -%}
         </div>
 
         <div class="col-12">
           <hr class="list-divider" />
         </div>
-    </div>
+      </div>
+    {%- endfor -%}
+
     <div class="row">
-      <div class="col-12 d-flex justify-content-end">          
-          <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i class="fa-solid fa-chevron-left icon-l"></i>Back to Quotes</button>
-        </div>
+      <div class="col-12">
+        <button type="button" class="link acct-link acct-nav-link font-body-bold jsBackToOrders"><i
+            class="fa-solid fa-chevron-left icon-l"></i>Back to Quotes</button>
+      </div>
     </div>
   </div>
 </section>
+{%- endfor -%}
 
-{% comment %} {%- else -%}
+{%- else -%}
 <section class="page-width">
-    <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.</p>  
+  <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.
+  </p>
 </section>
-{%- endif -%} {% endcomment %}
+{%- endif -%}
 
 {% schema %}
 {
