@@ -24,10 +24,12 @@ window.callInxsqlProxy = function(cartData) {
     dashboardLinks.forEach((link) => {
       link.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default navigation
-  
+        
+        const acctIconClass = link.getElementsByClassName("jsAcctIcon")[0].classList;
         const targetUrl = link.getAttribute("href"); // Get the link
         const actionType = link.dataset.action; // Action identifier (e.g., "orders", "invoices")
-  
+
+        acctIconClass.add("fa-spinner", "fa-pulse");
         if (actionType) {
           fetchDataForAction(actionType)
             .then(() => {
