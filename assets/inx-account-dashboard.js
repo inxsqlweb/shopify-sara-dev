@@ -7,7 +7,7 @@ const prevBtn = document.getElementById("jsPrevBtn");
 const nextBtn = document.getElementById("jsNextBtn");
 const paginationContainer = document.getElementById("jsPaginationContainer");
 
-//We will store all .jsOrderRow elements and a separate "filteredRows"
+//We will store all .jsAcctDataRow elements and a separate "filteredRows"
 let allRows = [];
 let filteredRows = [];
 
@@ -21,7 +21,7 @@ function renderPage(page, actionType) {
   const end = start + pageSize;
 
   // Show only the rows for the current page
-  const rowSelector = section.querySelectorAll(".jsOrderRow");
+  const rowSelector = section.querySelectorAll(".jsAcctDataRow");
   rowSelector.forEach((row, index) => {
     // Skip rows in the totals table
     if (row.closest("#totals-table")){
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* Search for items within orders */
-  const orderRows = document.querySelectorAll('.jsOrderRow');
+  const orderRows = document.querySelectorAll('.jsAcctDataRow');
   const itemSearch = document.getElementById('jsOrderItemSearch');
 
   itemSearch.addEventListener('input', function() {     

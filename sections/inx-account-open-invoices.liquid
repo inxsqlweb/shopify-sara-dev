@@ -83,7 +83,7 @@
           </div>
         </div>
         {% for invoice in open_invoices_data.dataset %}
-        <div class="row acct-table line-condensed jsOrderRow">
+        <div class="row acct-table line-condensed jsAcctDataRow">
           <div class="col-6 col-sm-4 col-xl">
             <a href="javascript:void(0);" class="acct-link acct-order-num"
               data-order-id="{{  invoice.copn_apply }}"><span class="acct-label">#</span>{{- invoice.copn_apply | strip -}}</a>
