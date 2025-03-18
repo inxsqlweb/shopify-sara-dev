@@ -1,4 +1,7 @@
 <script src="{{ 'inx-account-dashboard.js' | asset_url }}" defer="defer"></script>
+
+{% assign invoice_history_data = customer.metafields.inxsql_customer.inxsql_invoice_history.value %}
+
 {{ 'inx-styles-account.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
@@ -10,16 +13,17 @@
   }
 {%- endstyle -%}
 
-{% comment %} {%- if customer -%} {% endcomment %}
-<section class="page-width">
+{%- if customer -%} 
+<section class="page-width" id="invoice-history-section" data-total="{{invoice_history_data.solisthistDS.size}}" data-type="invoiceHistory">
   <div class="container-fluid text-xs">
     <div class="row">
       <div class="col-12 mb-3">
         <p>Browse by invoice/check # to see the original invoice and all payments, debits, and credit memos associated with that invoice.</p>
-        <p class="text-xs">Transaction Types: IN - Invoice; PY - Payment; DM - Debit Memo; CR - Credit Memo; WO - Write Offs</p>
+        <p class="text-xs">Transaction Types: IN - Invoice; PY - Payment; DM - Debit Memo; CR - Credit Memo; WO - Write Offs</p>
       </div>
     </div>
 
+    {% if invoice_history_data.solisthistDS and invoice_history_data.solisthistDS.size > 0 %}
     <div class="row d-none d-lg-flex acct-table acct-table-header text-xs">
       <div class="col-lg-2">
         <span>Invoice/Check #</span>
@@ -44,41 +48,55 @@
       </div>
     </div>
 
-    <div class="row acct-table line-condensed">
+    {% for invoiceHistory in invoice_history_data.solisthistDS %}
+    <div class="row acct-table line-condensed jsAcctDataRow">
       <div class="col-12 col-sm-3 col-lg-2">
-        <a href="" class="acct-link acct-order-num" data-order-id="1"><span class="acct-label">#</span>111234</a>
+        <a href="javascript:void(0);" class="acct-link acct-order-num" data-order-id="{{  invoiceHistory.chst_invoice }}"><span class="acct-label">#</span>{{- invoiceHistory.chst_invoice | strip -}}</a>
       </div>
       <div class="col-6 col-sm-2 col-lg-1">
-        <span class="acct-label">Type:</span>IN
+        <span class="acct-label">Type:</span>{{ invoiceHistory.chst_type }}
       </div>
       <div class="col-6 col-sm-3 col-lg acct-date">
-        <span class="acct-label">Date:</span>01/01/2025
+        <span class="acct-label">Date:</span>{{ invoiceHistory.chst_date | date: '%m/%d/%Y' }}
       </div>
       <div class="col-6 col-sm-4 col-lg acct-date">
-        <span class="acct-label">Due Date:</span>01/01/2025
+        <span class="acct-label">Due Date:</span>{{ invoiceHistory.chst_duedate | date: '%m/%d/%Y' }}
       </div>
       <div class="col-6 col-sm-3 col-lg">
-        <span class="acct-label">Apply To:</span>111234
+        <span class="acct-label">Apply To:</span>{{ invoiceHistory.chst_apply }}
       </div>
       <div class="col-6 col-sm-5 col-lg">
-        <span class="acct-label">Amount:</span>$50.00
+        <span class="acct-label">Amount:</span>${{ invoiceHistory.amt }}
       </div>
       <div class="col-6 col-sm-4 col-lg">
-        <span class="acct-label">PO #</span>654987
+        <span class="acct-label">PO #</span>{{ invoiceHistory.chst_custpo }}
       </div>     
       <div class="col-12">
         <hr class="list-divider" />
       </div>
     </div>
+  {% endfor %}
+    {% else %}
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>No data to display.</p>
+      </div>
+    </div>
+    {%- endif -%}
+    <div class="row">
+          <div class="col-12">
+            {% render 'inx-pagination' %}
+          </div>
+        </div>
   </div>
 </section>
 
-{% comment %} {%- else -%}
+{%- else -%}
 <section class="page-width">
   <p class="text-md">Please <a href="{{ routes.account_login_url }}" class="link" rel="nofollow">log in</a> to continue.
   </p>
 </section>
-{%- endif -%} {% endcomment %}
+{%- endif -%}
 
 {% schema %}
 {
