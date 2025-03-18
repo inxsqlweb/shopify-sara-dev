@@ -1,3 +1,22 @@
+window.callInxsqlProxy = function(cartData) {
+  const endpoint = "https://sara-dev-site.myshopify.com/apps/proxy?action=cart";
+
+  // Make a POST request with the cart items
+  return fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cartData),
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log("INxSQL cart proxy response:", data);
+      // Optionally store or process the response
+      // e.g. sessionStorage.setItem('cartProxyResponse', JSON.stringify(data));
+    })
+    .catch(error => {
+      console.error("Error calling cart proxy:", error);
+    });
+};
 
  document.addEventListener("DOMContentLoaded", function () {
     const dashboardLinks = document.querySelectorAll(".jsDashboardLink");
