@@ -85,8 +85,9 @@
         {% for invoice in open_invoices_data.dataset %}
         <div class="row acct-table line-condensed jsAcctDataRow">
           <div class="col-6 col-sm-4 col-xl">
-            <a href="javascript:void(0);" class="acct-link acct-order-num"
-              data-order-id="{{  invoice.copn_apply }}"><span class="acct-label">#</span>{{- invoice.copn_apply | strip -}}</a>
+            {% comment %} <a href="javascript:void(0);" class="acct-link acct-order-num"
+              data-order-id="{{  invoice.copn_apply }}"><span class="acct-label">#</span>{{- invoice.copn_apply | strip -}}</a> {% endcomment %}
+              <div class="font-body-bold" data-order-id="{{  invoice.copn_apply }}"><span class="acct-label">#</span>{{- invoice.copn_apply | strip -}}</div>
           </div>
           <div class="col-6 col-sm-8 col-xl acct-date">
             <span class="acct-label">Date:</span>{{ invoice.copn_date | date: '%m/%d/%Y' }}

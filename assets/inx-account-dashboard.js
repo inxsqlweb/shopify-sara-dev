@@ -107,32 +107,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const orderRows = document.querySelectorAll('.jsAcctDataRow');
   const itemSearch = document.getElementById('jsOrderItemSearch');
 
-  itemSearch.addEventListener('input', function() {     
-    const searchValue = this.value.trim().toLowerCase();
-    const activeSection = document.querySelector("[data-type]");
-
-      orderRows.forEach(row => {
-        const rowItems = row.dataset.items;
-            if (!searchValue || rowItems.includes(searchValue)) {
-              row.style.display = '';
-            } else {
-              row.style.display = 'none';
-            }
-      })      
-
-      if (searchValue) {
-        //If we are searching, hide the pagination
-        if (paginationContainer) paginationContainer.style.display = "none";
-      }
-        else {
-          //If we are not searching, reinitialize pagination
-          if (activeSection) {
-            const actionType = activeSection.getAttribute("data-type");
-            initializePagination(actionType);
-          }
-          if (paginationContainer) paginationContainer.style.display = "block";
+  if (itemSearch) {
+    itemSearch.addEventListener('input', function() {     
+      const searchValue = this.value.trim().toLowerCase();
+      const activeSection = document.querySelector("[data-type]");
+  
+        orderRows.forEach(row => {
+          const rowItems = row.dataset.items;
+              if (!searchValue || rowItems.includes(searchValue)) {
+                row.style.display = '';
+              } else {
+                row.style.display = 'none';
+              }
+        })      
+  
+        if (searchValue) {
+          //If we are searching, hide the pagination
+          if (paginationContainer) paginationContainer.style.display = "none";
         }
-  });
+          else {
+            //If we are not searching, reinitialize pagination
+            if (activeSection) {
+              const actionType = activeSection.getAttribute("data-type");
+              initializePagination(actionType);
+            }
+            if (paginationContainer) paginationContainer.style.display = "block";
+          }
+    });
+  }
 
   //Item search clear input button
   const clearInputButtons = document.querySelectorAll('.jsResetBtn');

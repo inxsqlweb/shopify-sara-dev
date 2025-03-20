@@ -51,7 +51,8 @@
     {% for invoiceHistory in invoice_history_data.solisthistDS %}
     <div class="row acct-table line-condensed jsAcctDataRow">
       <div class="col-12 col-sm-3 col-lg-2">
-        <a href="javascript:void(0);" class="acct-link acct-order-num" data-order-id="{{  invoiceHistory.chst_invoice }}"><span class="acct-label">#</span>{{- invoiceHistory.chst_invoice | strip -}}</a>
+        {% comment %} <a href="javascript:void(0);" class="acct-link acct-order-num" data-order-id="{{  invoiceHistory.chst_invoice }}"><span class="acct-label">#</span>{{- invoiceHistory.chst_invoice | strip -}}</a> {% endcomment %}
+        <div class="font-body-bold" data-order-id="{{  invoiceHistory.chst_invoice }}"><span class="acct-label">#</span>{{- invoiceHistory.chst_invoice | strip -}}</div>
       </div>
       <div class="col-6 col-sm-2 col-lg-1">
         <span class="acct-label">Type:</span>{{ invoiceHistory.chst_type }}
