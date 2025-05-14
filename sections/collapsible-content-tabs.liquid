@@ -107,6 +107,17 @@
   </div>
 </div>
 
+
+<script>
+   document.querySelectorAll('.accordion   [id^="Details-"] summary').forEach((sum) => {
+      sum.setAttribute('aria-expanded',false);
+    })
+    document.querySelectorAll('.accordion  [id^="Details-"]').forEach((sum) => {
+      if(summary.parentElement.hasAttribute('open')!= sum.hasAttribute('open'))
+        sum.removeAttribute('open');
+    })
+</script>
+
 {% schema %}
 {
   "name": "t:sections.collapsible_content.name",
@@ -515,13 +526,3 @@
   ]
 }
 {% endschema %}
-
-<script>
-   document.querySelectorAll('.product__accordion   [id^="Details-"] summary').forEach((sum) => {
-      sum.setAttribute('aria-expanded',false);
-    })
-    document.querySelectorAll('.product__accordion  [id^="Details-"]').forEach((sum) => {
-      if(summary.parentElement.hasAttribute('open')!= sum.hasAttribute('open'))
-        sum.removeAttribute('open');
-    })
-</script>
