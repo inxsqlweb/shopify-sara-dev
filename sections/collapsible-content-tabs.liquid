@@ -109,14 +109,12 @@
 
 
 <script>
-   document.querySelectorAll('.accordion [id^="Details-"] accordion__content').forEach((sum) => {
-      sum.setAttribute('aria-expanded',false);
-    })
-    document.querySelectorAll('.accordion [id^="Details-"]').forEach((sum) => {
-      
-      if(sum.parentElement.hasAttribute('open')!= sum.hasAttribute('open'))
-        sum.removeAttribute('open');
-    })
+$(document).ready(function(){
+  $('.product__accordion details').on('click',function(){
+    $(this).attr('open');
+    $(this).parent('.product__accordion').siblings().find('details').removeAttr('open');
+  });
+});
 </script>
 
 {% schema %}
