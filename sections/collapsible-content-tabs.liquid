@@ -114,7 +114,7 @@
     })
     document.querySelectorAll('.accordion [id^="Details-"]').forEach((sum) => {
       
-      if(this.parentElement.hasAttribute('open')!= sum.hasAttribute('open'))
+      if(sum.parentElement.hasAttribute('open')!= sum.hasAttribute('open'))
         sum.removeAttribute('open');
     })
 </script>
