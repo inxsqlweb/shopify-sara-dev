@@ -146,6 +146,15 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "7451557111894188582": {
+        "type": "shopify://apps/inxsql-webservice/blocks/inx-theme/5ef5f2b3-67bf-4b59-9005-c09d5f9d68d9",
+        "disabled": false,
+        "settings": {
+          "inx_liquid_template": "<script defer src=\"{{ 'brands.js' | asset_url }}\"></script>\n<script defer src=\"{{ 'solid.js' | asset_url }}\"></script>\n<script defer src=\"{{ 'inx-account-dashboard.js' | asset_url }}\"></script>\n<script defer src=\"{{ 'inx-account-data.js' | asset_url }}\"></script>\n<script defer src=\"{{ 'fontawesome.js' | asset_url }}\"></script>\n<link rel=\"stylesheet\" href=\"{{ 'bootstrap-grid.css' | asset_url }}\">\n<link rel=\"stylesheet\" href=\"{{ 'inx-styles.css' | asset_url }}\">\n<link rel=\"stylesheet\" href=\"{{ 'inx-styles-forms.css' | asset_url }}\">\n<link rel=\"stylesheet\" href=\"{{ 'inx-styles-account.css' | asset_url }}\">"
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
