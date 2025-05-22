@@ -11,21 +11,29 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "custom_css": [],
       "settings": {
-        "custom_title": "",
-        "page_title_color": "",
-        "padding_top": 20,
-        "padding_bottom": 0
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "account_dashboard": {
-      "type": "inx-account-dashboard",
-      "settings": {}
+    "inx-account-dashboard-obj": {
+      "type": "apps",
+      "blocks": {
+        "inx-account-dashboard": {
+          "type": "shopify://apps/inxsql-webservice/blocks/inx-account-dashboard/5ef5f2b3-67bf-4b59-9005-c09d5f9d68d9",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "inx-account-dashboard"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
-    "account_dashboard"
+    "inx-account-dashboard-obj"
   ]
 }

@@ -1,19 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
-      "custom_css": [],
-      "settings": { "padding_top": 20, "padding_bottom": 0 }
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
-    
-    "dashboard_link": {
-        "type": "inx-account-dashboard-link"
-    },  
-    
-    "open_invoices": {
-      "type": "inx-account-open-invoices",
-      "settings": { "acct-icon-color": "" }
+    "inx-account-open-invoices-obj": {
+      "type": "apps",
+      "blocks": {
+        "inx-account-dashboard-link": {
+          "type": "shopify://apps/inxsql-webservice/blocks/inx-account-dashboard-link/5ef5f2b3-67bf-4b59-9005-c09d5f9d68d9",
+          "settings": {}
+        },
+        "inx-account-open-invoices": {
+          "type": "shopify://apps/inxsql-webservice/blocks/inx-account-open-invoices/5ef5f2b3-67bf-4b59-9005-c09d5f9d68d9",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "inx-account-dashboard-link",
+        "inx-account-open-invoices"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
-  "order": ["main", "dashboard_link", "open_invoices"]
+  "order": [
+    "main",
+    "inx-account-open-invoices-obj"
+  ]
 }
